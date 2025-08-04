@@ -1,0 +1,54 @@
+Duuet — Design Case Study
+Role: UI/UX Design Intern
+Company: Salvation Health Tech Pvt Ltd
+Duration: Jan 2025 – Present
+Team: Myself + Developers
+Status: Live | 2000+ users
+
+About the Project
+Duuet is a skincare and haircare app built for Gen Z. It helps users discover products, understand ingredient transparency, and engage with real, relatable beauty conversations—without filters or fluff.
+
+I joined the team as the first design intern and helped bring the product to life—working from early concepts to a live app now used by over 2,000 people.
+
+My Role
+I designed the entire app experience from scratch, including:
+
+Building key user flows from zero
+
+Designing every screen in Figma
+
+Iterating based on real user feedback
+
+Collaborating closely with developers throughout the build
+
+My Design Process
+1. Understanding the Problem
+Spent time reviewing how Gen Z talks about skincare—on Reddit, YouTube, and in internal user chats. The pattern was clear: they don’t trust polished marketing. They want honest product insights, real opinions, and a space that feels familiar.
+
+2. Mapping Key Features
+I designed flows and UI for:
+
+Home screen: Simple, scrollable, with smart entry points
+
+Buzz: A space for short skincare/haircare videos and posts
+
+Shop: Team-buy model with wholesale pricing
+
+Product Pages: AI-based insights like hazard score and efficacy
+
+Scan Feature: Users can scan product labels to get ingredient info
+
+Plus: Search, onboarding, profile, and empty states
+
+3. Visual & Interaction Design
+Kept the interface light, familiar, and Gen Z-friendly. Used Duuet’s core brand colors, rounded cards, and subtle gradients. Built reusable components to keep things scalable.
+
+4. Feedback & Iteration
+As real users started joining, I made design updates based on what worked and what didn’t—small UI tweaks, improved flow clarity, better spacing, etc.
+
+Outcome
+The app crossed 2000+ users organically. My designs were handed off, implemented, and are actively used today. It’s still evolving, but I continue to support the team with updated designs and new features.
+
+What I Learned
+This was my first experience designing a full product end-to-end. I learned how to break down features, communicate with developers, and adjust quickly based on feedback—all while designing for an audience that doesn’t tolerate anything that feels fake or complicated.
+

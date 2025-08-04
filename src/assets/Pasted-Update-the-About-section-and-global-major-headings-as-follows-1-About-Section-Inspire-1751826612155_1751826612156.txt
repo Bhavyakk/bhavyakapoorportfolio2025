@@ -1,0 +1,33 @@
+Update the **About** section and global **major headings** as follows:
+
+1. **About Section – Inspired by Huly's "Knowledge at Your Fingertip"**
+   - Background: **white** with subtle soft glow accents (like #F9FAFC gradient).
+   - Left half:  
+     - Add a **typewriter animation heading**: “Who Am I?”
+     - Below that, place a static copy block of text:
+       ```
+       I’m Bhavya Kapoor – a UI/UX designer passionate about crafting beautiful, functional experiences.
+       ```
+     - This text block must **mimic a rich text editor**, showing:
+       - A floating toolbar with buttons for **Bold**, **Italic**, **Underline**, and **Link** (non-functional on click, just animated).
+       - Cursor indicators (like "User 1", "You") floating or blinking near the text block.
+       - On scroll into view, show subtle animations like hover glow on buttons and floating name tags fading in.
+     - Animate toolbar buttons as if being clicked one by one (e.g., Bold → italicizes “Bhavya Kapoor” visually), like in the inspiration.
+   - Right half:
+     - A rounded image card (your photo or mockup) with soft shadows and a mild radial gradient glow.
+
+2. **Global Headings – Typewriter Effect**
+   - Apply the same **typewriter text animation** used in the fifth inspiration page (“Knowledge at Your Fingertip”) to these heading texts across the site:
+     - Section 1: “Bhavya Kapoor”
+     - Section 2: “Who Am I?”
+     - Section 3: “What I Do” or “My Expertise”
+     - Section 4: “Case Studies” or “My Work”
+     - Section 5: “Knowledge at Your Fingertip” (optional reuse)
+     - Contact Section: “Let’s Connect”
+   - Use a smooth linear typing animation (around 60–80ms per character) and blinking cursor during typing.
+
+3. **Interaction Notes**
+   - No actual editing/click-to-format required – just visual animations.
+   - All formatting changes (bold/italic/link) should look like they are being applied dynamically as a **fake collaborative editing animation**.
+   - Cursor and tooltips should slide/fade in on scroll or when the About section enters viewport.
+

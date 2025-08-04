@@ -1,0 +1,21 @@
+{
+  "name": "Bhavya Kapoor Portfolio",
+  "short_name": "Bhavya Kapoor",
+  "description": "Creative UI/UX Designer and Social Media Strategist specializing in intuitive digital experiences",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#6366f1",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

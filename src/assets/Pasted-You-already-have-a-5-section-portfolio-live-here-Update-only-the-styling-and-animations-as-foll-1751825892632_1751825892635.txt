@@ -1,0 +1,48 @@
+You already have a 5‑section portfolio live here. Update **only** the styling and animations as follows:
+
+1. **Global**  
+   - Switch to a geometric sans (e.g. Manrope).  
+   - Headings ultra‑bold, body text regular (16px desktop / 14px mobile).  
+   - Base colors: #000 / #FFF + gradient accent #6F61EF→#39D2C0.  
+   - Tiny drifting particles on dark sections; faint light radial gradient on white sections.  
+   - Scroll‑triggered fade‑up + slide animations on every block.
+
+2. **Navbar**  
+   - Wrap your existing nav links in an 80px‑high pill‑shaped semi‑opaque bar.  
+   - Left: logo; right: “Download CV” (gradient border) & “Get Started” (filled gradient).
+
+3. **Section 1 – Hero (dark)**  
+   - Full‑viewport. Title “BHAVYA KAPOOR” (120px, white glow gradient outline).  
+   - Subheading 24px white.  
+   - Buttons: “Launch Projects” (filled dark + teal glow) & “Download CV” (white outline + purple glow).  
+   - On load: fade text up + pulse button glows.
+
+4. **Section 2 – About (white)**  
+   - Two dark cards side‑by‑side (“Who I Am” + “My Mission”), rounded corners, drop shadow.  
+   - Right: portrait frame + two floating skill badges (“Figma”, “Adobe XD”) that slide & fade in on scroll.
+
+5. **Section 3 – Expertise & Projects (white)**  
+   - Expertise: six cards with gradient progress bars.  
+   - Projects: on hover, each card’s border glows in the accent gradient.
+
+6. **Section 4 – Interactive Demo (dark)**  
+   - Left: draggable “Document” card with two colored cursors and inline formatting toolbar (Bold, Italic, Underline, Link).  
+   - Right: mockup screenshot in rounded frame with gradient glow.  
+   - On scroll‑into‑view: slide cursors in + fade toolbar.
+
+7. **Section 5 – Copy & Typewriter (white)**  
+   - Title: “Knowledge at Your Fingertip” (48px black).  
+   - Under it: live inline text snippet you can select—supports bold/italic/underline/link.  
+   - Animate that snippet with a typewriter effect on load.  
+   - Right: additional screenshot or card as inspiration.
+
+8. **Contact (white)**  
+   - Dark form card with Name/Email/Message + full‑width gradient “Send Message” button.  
+   - Info cards: Email & Phone + centered LinkedIn icon.
+
+9. **Footer (dark)**  
+   - Mini nav + “© 2025 Bhavya Kapoor” in small white text.
+
+**Mobile:** stack columns, scale text, reduce padding.  
+
+Keep all your existing HTML; just replace or extend the CSS/JS.

@@ -1,0 +1,51 @@
+Duuet — Design Case Study
+Role: UI/UX Design Intern
+Company: Salvation Health Tech Pvt Ltd
+Duration: Jan 2025 – Present
+Team: Myself + Developers
+Status: Live | 2000+ users
+
+About the Project
+Duuet is a skincare and haircare app built for people aged between 20–30. It helps users discover products, understand ingredient transparency, and engage in real, relatable conversations around their routines—without filters, ads, or influencer noise.
+
+I joined as the first design intern and worked on the product from the ground up, contributing across all stages of design—from rough ideas to fully implemented screens.
+
+My Role
+Designed the entire app experience
+
+Created all key screens in Figma
+
+Collaborated closely with developers
+
+Iterated on live designs using real user feedback
+
+My Design Process
+1. Understanding the User
+I started by researching how people in their 20s approach skincare and haircare—looking at Reddit, YouTube comments, community threads, and early internal feedback. The common theme: they want honest, simplified answers, not generic beauty advice.
+
+2. Structuring the App
+Mapped out and designed flows for:
+
+Home screen: Easy navigation to key features
+
+Buzz section: Short, real videos + community posts
+
+Duuet Marketplace: Shop products at wholesale prices via team-buy
+
+Product insights: AI-powered breakdowns (hazard score, efficacy)
+
+Scan feature: Scan a label and get full ingredient details
+
+Also designed onboarding, search, profiles, and edge cases
+
+3. Visual & UI Design
+Focused on building a clean, friendly interface with rounded components, soft gradients, and Duuet’s brand palette. Reusable components kept the system consistent and easy to scale.
+
+4. Feedback & Iteration
+After launch, I observed how real users interacted with the app and refined key flows and UI based on what felt unclear, slow, or unnecessary. This included microcopy fixes, layout tweaks, and simplifying interactions.
+
+Outcome
+Duuet is now live with over 2000 users. My designs shaped the core experience, and I continue to support the team with updates as new features are added.
+
+What I Learned
+This was my first time designing an app end-to-end. I learned how to simplify complex ideas, collaborate with developers, and adapt fast based on how real people use the product—not just how it looks on Figma.
