@@ -130,7 +130,8 @@ export function Projects() {
       challenge: "Most existing event apps felt outdated and didn't match how people aged 18-30 discover and share events in real life—visually, quickly, and socially.",
       solution: "Designed a party and entertainment booking app with bold, dark-themed UI and neon accents that feel energetic and modern, matching how this audience thinks and moves.",
       description: "Party and entertainment booking app for users aged 18-30 with dark theme, neon highlights, and visual-first discovery.",
-      image: partyAppImage,
+      image: partyAppImage
+      ,
       tags: ["Mobile Design", "Events", "18-30s", "Visual Discovery"],
       color: "cyan" as const,
       liveUrl: "https://www.figma.com/design/1Jttx4K4hG3gAPYCBTVsRy/PARTY---EVENT-SERVICE-APP?node-id=18-130&t=kV9sw4Bhzb70eQWL-1",
@@ -167,7 +168,7 @@ export function Projects() {
             "One-tap booking - no endless forms"
           ],
           outcome: "Interface that actually matches the energy of going out.",
-          image: partyAppImage
+          image: undefined
         },
         {
           icon: <Smartphone className="w-6 h-6 text-black" />,
