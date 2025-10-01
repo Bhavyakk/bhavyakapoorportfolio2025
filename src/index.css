@@ -503,5 +503,13 @@
     @apply bg-background text-foreground;
   }
 }
+/* Hide summary arrow globally */
+summary::-webkit-details-marker {
+  display: none !important;
+}
+
+summary::marker {
+  content: "" !important;
+}
 
 
