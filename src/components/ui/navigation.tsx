@@ -32,14 +32,13 @@ export function Navigation() {
         <div className="nav-pill mx-auto max-w-4xl px-4 md:px-8 py-4 md:py-6 flex items-center justify-center bg-white/10 backdrop-blur-lg border border-white/20 rounded-full shadow-2xl">
           {/* Navigation Links */}
           <div className="flex items-center space-x-4 md:space-x-8">
-            {["home", "about", "education", "experience", "projects", "contact"].map((section) => (
+            {["home", "about", "education", "projects", "contact"].map((section) => (
               <motion.button
                 key={section}
-                className={`transition-all duration-300 capitalize text-sm md:text-lg font-medium ${
-                  isOverWhiteSection 
-                    ? "text-black hover:text-transparent hover:bg-gradient-to-r hover:from-purple-500 hover:to-teal-400 hover:bg-clip-text" 
+                className={`transition-all duration-300 capitalize text-sm md:text-lg font-medium ${isOverWhiteSection
+                    ? "text-black hover:text-transparent hover:bg-gradient-to-r hover:from-purple-500 hover:to-teal-400 hover:bg-clip-text"
                     : "text-white hover:text-purple-400"
-                }`}
+                  }`}
                 whileHover={{ scale: 1.05 }}
                 onClick={() => scrollToSection(section)}
               >
@@ -62,16 +61,14 @@ export function Navigation() {
 
         {/* Mobile Sidebar */}
         <motion.div
-          className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
-            isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
+          className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
           onClick={() => setIsMobileMenuOpen(false)}
         />
-        
+
         <motion.div
-          className={`fixed top-0 right-0 h-full w-80 bg-black/20 backdrop-blur-xl border-l border-white/20 z-50 transition-transform duration-300 ${
-            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`fixed top-0 right-0 h-full w-80 bg-black/20 backdrop-blur-xl border-l border-white/20 z-50 transition-transform duration-300 ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
         >
           {/* Close Button */}
           <button
@@ -80,10 +77,10 @@ export function Navigation() {
           >
             <X size={24} />
           </button>
-          
+
           <div className="p-6 pt-20">
             <div className="space-y-4">
-              {["home", "about", "education", "experience", "projects", "contact"].map((section) => (
+              {["home", "about", "education", "projects", "contact"].map((section) => (
                 <motion.button
                   key={section}
                   className="block w-full text-left text-white text-lg font-medium py-2 px-4 rounded-lg hover:bg-white/10 transition-colors duration-300 capitalize"
