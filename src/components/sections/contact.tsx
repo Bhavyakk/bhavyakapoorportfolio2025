@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { AnimatedText } from "@/components/ui/animated-text";
-import { Mail, Phone, Linkedin } from "lucide-react";
+import { Mail, Linkedin } from "lucide-react";
 
 export function Contact() {
 
@@ -28,7 +28,7 @@ export function Contact() {
           >Have a project in mind? Let's create something amazing together.</motion.p>
           
           {/* Contact Blocks */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-2xl mx-auto">
             {/* Email Block */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -59,37 +59,11 @@ export function Contact() {
               </a>
             </motion.div>
             
-            {/* Phone Block */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="relative bg-white/5 backdrop-blur-lg p-8 border border-white/20 hover:border-teal-400/60 transition-all duration-500 group text-center rounded-xl hover:bg-white/10 hover:scale-105 cursor-pointer overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-teal-600/10 via-transparent to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-3 rounded-full bg-teal-500/20 group-hover:bg-teal-500/30 transition-all duration-300">
-                      <Phone className="w-8 h-8 text-teal-400 group-hover:text-teal-300 transition-colors duration-300" />
-                    </div>
-                  </div>
-                  <h4 className="font-bold text-white mb-2 text-lg">Phone</h4>
-                  <a 
-                    href="tel:+919675990014"
-                    className="text-gray-300 hover:text-teal-400 transition-colors duration-300 font-medium"
-                  >
-                    +91 9675990014
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-            
             {/* LinkedIn Block */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
             >
               <div className="relative bg-white/5 backdrop-blur-lg p-8 border border-white/20 hover:border-blue-400/60 transition-all duration-500 group text-center rounded-xl hover:bg-white/10 hover:scale-105 cursor-pointer overflow-hidden shadow-2xl">
