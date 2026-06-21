@@ -55,7 +55,7 @@ export function Contact() {
           
           <div className="mt-16 md:mt-0 text-left md:text-right">
             <p className="text-gray-500 uppercase tracking-[0.2em] text-sm font-medium mb-4">Location</p>
-            <p className="text-xl text-white font-light">Chandigarh, India<br/>Available Worldwide</p>
+            <p className="text-xl text-white font-light">India<br/>Available Worldwide</p>
           </div>
         </div>
 
