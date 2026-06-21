@@ -26,6 +26,8 @@ export function Projects() {
   });
 
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
+  const xBgText = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const imageParallaxX = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   const handleProjectClick = (project: any) => {
     setSelectedProject(project);
@@ -141,11 +143,11 @@ export function Projects() {
       <section ref={targetRef} id="projects" className="relative h-[400vh] bg-[#030505]">
         <div className="sticky top-0 h-screen flex items-center overflow-hidden">
           
-          <div className="absolute top-10 left-10 z-20 mix-blend-difference pointer-events-none">
-            <h2 className="font-serif text-[10vw] leading-none tracking-tighter text-[#f3f6f5] opacity-20">
+          <motion.div style={{ x: xBgText }} className="absolute top-10 left-10 z-0 pointer-events-none">
+            <h2 className="font-serif text-[12vw] leading-[0.8] tracking-tighter text-[#f3f6f5] opacity-5">
               SELECTED<br/>WORKS
             </h2>
-          </div>
+          </motion.div>
 
           <motion.div style={{ x }} className="flex gap-16 px-[10vw] items-center relative z-10">
             {projects.map((project, index) => (
@@ -156,10 +158,11 @@ export function Projects() {
               >
                 <div className="w-full h-full relative overflow-hidden">
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-700 z-10" />
-                  <img
+                  <motion.img
+                    style={{ x: imageParallaxX }}
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transform group-hover:scale-105 transition-all duration-1000 ease-[0.16,1,0.3,1]"
+                    className="w-[120%] max-w-none h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 ease-[0.16,1,0.3,1]"
                   />
                   
                   {/* Cinematic Content Overlay */}
