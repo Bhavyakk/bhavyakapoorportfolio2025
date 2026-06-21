@@ -56,7 +56,7 @@ export function Hero() {
             transition={{ delay: 0.8, duration: 0.8 }}
           >
             <MagneticButton
-              className="group relative w-48 h-14 bg-gradient-to-r from-purple-600 via-purple-500 to-cyan-500 hover:from-purple-700 hover:via-purple-600 hover:to-cyan-600 text-white text-lg font-semibold rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-purple-500/25 overflow-hidden"
+              className="group relative w-48 h-14 bg-gradient-to-r from-teal-600 via-teal-500 to-emerald-500 hover:from-teal-700 hover:via-teal-600 hover:to-emerald-600 text-white text-lg font-semibold rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-teal-500/25 overflow-hidden"
               onClick={() => scrollToSection("projects")}
               strength={0.4}
             >

@@ -21,6 +21,12 @@ export default {
   				'Arial',
   				'Noto Sans',
   				'sans-serif'
+  			],
+  			serif: [
+  				'Instrument Serif',
+  				'Georgia',
+  				'ui-serif',
+  				'serif'
   			]
   		},
   		borderRadius: {
