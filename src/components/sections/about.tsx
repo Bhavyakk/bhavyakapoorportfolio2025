@@ -1,107 +1,131 @@
-import { motion } from "framer-motion";
-import { ArrowRight, MapPin, Coffee, Camera, Globe } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { ArrowRight, MapPin } from "lucide-react";
 import bg__1_ from "../../assets/bg-1.png";
 
 export function About() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
   const skills = [
     "UI/UX Design", "Figma", "Design Research", 
     "Branding", "Interaction Design", "Prototyping"
   ];
 
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+
   return (
-    <section id="about" className="py-32  relative overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="about" ref={containerRef} className="py-32 relative overflow-hidden bg-[#030505]">
+      <div className="container mx-auto px-6 relative z-10 max-w-7xl">
         
         {/* Section Header */}
-        <div className="mb-20">
+        <div className="mb-32">
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-serif text-5xl md:text-7xl text-white mb-6"
+            style={{ y }}
+            className="font-serif text-[8vw] md:text-[10vw] leading-[0.9] text-white/5 uppercase tracking-tighter"
           >
-            Behind the<br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-emerald-500">Pixels.</span>
+            Behind the<br/><span className="text-white">Pixels</span>
           </motion.h2>
         </div>
 
-        {/* Bento Box Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-7xl mx-auto auto-rows-[minmax(180px,auto)]">
+        {/* Scroll Revealed Bio & Image */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-32">
           
-          {/* Main Bio Card (Spans 8 columns) */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="md:col-span-8 row-span-2 bg-white/[0.02] border border-white/5 rounded-3xl p-8 md:p-12 backdrop-blur-sm flex flex-col justify-between group hover:bg-white/[0.04] transition-colors duration-500"
-          >
-            <div className="mb-8">
-              <h3 className="font-serif text-3xl text-white mb-6">Hi, I'm Bhavya.</h3>
-              <div className="space-y-6 text-gray-400 text-lg md:text-xl font-light leading-relaxed">
-                <p>
-                  I'm a UI/UX and visual designer focused on making digital experiences look better, function seamlessly, and communicate clearly. 
-                </p>
-                <p>
-                  I love taking rough concepts and shaping them into products people actually connect with. Lately, I've been diving deep into user behavior—exploring how intentional design makes everyday experiences easier.
-                </p>
-                <p>
-                  Outside the screen, you'll find me traveling, taking photos, or watching cricket. Always open to meeting new people and collaborating on interesting projects.
-                </p>
-                <p className="text-teal-400 font-medium pt-2">
-                  P.S. — I'm currently taking on freelance projects. Let's connect!
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 text-sm text-gray-500 uppercase tracking-widest font-medium">
-              <span>Scroll to explore</span>
-              <ArrowRight className="w-4 h-4" />
-            </div>
-          </motion.div>
+          <div className="lg:col-span-7 space-y-12">
+            <motion.h3 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="font-serif text-5xl md:text-7xl text-white tracking-tight mix-blend-difference"
+            >
+              Hi, I'm Bhavya.
+            </motion.h3>
+            
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ staggerChildren: 0.2 }}
+              className="space-y-8 text-xl md:text-3xl font-light text-[#f3f6f5]/60 leading-snug"
+            >
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-white mix-blend-difference hover-target"
+              >
+                I'm a UI/UX and visual designer focused on making digital experiences look better, function seamlessly, and communicate clearly.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="hover-target"
+              >
+                I love taking rough concepts and shaping them into products people actually connect with. Lately, I've been diving deep into user behavior—exploring how intentional design makes everyday experiences easier.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="hover-target"
+              >
+                Outside the screen, you'll find me traveling, taking photos, or watching cricket. Always open to meeting new people and collaborating on interesting projects.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-teal-400 font-medium pt-4 hover-target"
+              >
+                P.S. — I'm currently taking on freelance projects. Let's connect!
+              </motion.p>
+            </motion.div>
+          </div>
 
-          {/* Photo Card (Spans 4 columns) */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="md:col-span-4 row-span-2 rounded-3xl overflow-hidden relative group"
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 relative"
           >
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
-            <img 
-              src={bg__1_} 
-              alt="Bhavya Kapoor" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute bottom-6 left-6 z-20 flex items-center gap-2 text-white/90 font-medium">
-              <MapPin className="w-4 h-4 text-teal-400" />
-              <span>India</span>
+            <div className="aspect-[3/4] overflow-hidden rounded-sm hover-target group">
+              <div className="absolute inset-0 bg-teal-500/20 group-hover:bg-transparent transition-colors duration-700 z-10 mix-blend-multiply" />
+              <img 
+                src={bg__1_} 
+                alt="Bhavya Kapoor" 
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-1000"
+              />
+              <div className="absolute bottom-8 left-8 z-20 flex items-center gap-3 text-white font-serif text-2xl mix-blend-difference">
+                <MapPin className="w-6 h-6 text-teal-400" />
+                <span>India</span>
+              </div>
             </div>
           </motion.div>
-
-          {/* Skills Marquee Card (Spans 12 columns) */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="md:col-span-12 bg-teal-950/20 border border-teal-900/30 rounded-3xl p-8 overflow-hidden flex items-center relative"
-          >
-            <div className="absolute left-0 w-32 h-full bg-gradient-to-r from-[#030505] to-transparent z-10" />
-            <div className="absolute right-0 w-32 h-full bg-gradient-to-l from-[#030505] to-transparent z-10" />
-            
-            <div className="flex gap-12 whitespace-nowrap animate-scroll items-center">
-              {[...skills, ...skills, ...skills].map((skill, i) => (
-                <div key={i} className="flex items-center gap-6">
-                  <span className="text-2xl md:text-4xl font-serif text-teal-100/40 hover:text-teal-400 transition-colors cursor-default">
-                    {skill}
-                  </span>
-                  <span className="w-2 h-2 rounded-full bg-teal-500/30" />
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
 
         </div>
+
+        {/* Kinetic Skills Marquee */}
+        <div className="relative py-20 border-y border-white/10 overflow-hidden">
+          <div className="absolute left-0 w-32 h-full bg-gradient-to-r from-[#030505] to-transparent z-10" />
+          <div className="absolute right-0 w-32 h-full bg-gradient-to-l from-[#030505] to-transparent z-10" />
+          
+          <div className="flex gap-16 whitespace-nowrap animate-scroll items-center hover-target cursor-ew-resize">
+            {[...skills, ...skills, ...skills, ...skills].map((skill, i) => (
+              <div key={i} className="flex items-center gap-8">
+                <span className="text-4xl md:text-7xl font-serif text-transparent bg-clip-text bg-gradient-to-r from-teal-100/20 to-white/10 hover:from-teal-400 hover:to-emerald-400 transition-colors duration-500 uppercase tracking-tighter mix-blend-difference">
+                  {skill}
+                </span>
+                <span className="text-teal-500/50 text-3xl font-serif italic">*</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );

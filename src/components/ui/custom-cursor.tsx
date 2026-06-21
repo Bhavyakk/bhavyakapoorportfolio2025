@@ -1,41 +1,28 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export function CustomCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
   const [isHovering, setIsHovering] = useState(false);
-  const [isClicking, setIsClicking] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Force hide all system cursors immediately
+    // Hide default cursor
     document.body.style.cursor = 'none';
-    document.documentElement.style.cursor = 'none';
 
-    const updateCursorPosition = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+    const updateMousePosition = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+      if (!isVisible) setIsVisible(true);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      
-      // Check if we're in the arsenal section - disable custom cursor effects
-      const arsenalSection = target.closest('[data-arsenal]');
-      if (arsenalSection) {
-        setIsHovering(false);
-        return;
-      }
-      
-      // Force cursor none on the target element
-      if (target && target.style) {
-        target.style.cursor = 'none';
-      }
-      
       if (
-        target.tagName === 'BUTTON' ||
-        target.tagName === 'A' ||
-        target.classList.contains('cursor-pointer') ||
-        target.closest('button') ||
-        target.closest('a') ||
-        target.closest('[role="button"]')
+        target.tagName.toLowerCase() === "a" ||
+        target.tagName.toLowerCase() === "button" ||
+        target.closest("a") ||
+        target.closest("button") ||
+        target.closest(".hover-target")
       ) {
         setIsHovering(true);
       } else {
@@ -43,55 +30,56 @@ export function CustomCursor() {
       }
     };
 
-    const handleMouseDown = () => {
-      setIsClicking(true);
+    const handleMouseLeave = () => {
+      setIsVisible(false);
     };
 
-    const handleMouseUp = () => {
-      setIsClicking(false);
-    };
-
-    // Add event listeners
-    document.addEventListener('mousemove', updateCursorPosition, true);
-    document.addEventListener('mouseover', handleMouseOver, true);
-    document.addEventListener('mousedown', handleMouseDown, true);
-    document.addEventListener('mouseup', handleMouseUp, true);
+    window.addEventListener("mousemove", updateMousePosition);
+    window.addEventListener("mouseover", handleMouseOver);
+    document.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      document.removeEventListener('mousemove', updateCursorPosition, true);
-      document.removeEventListener('mouseover', handleMouseOver, true);
-      document.removeEventListener('mousedown', handleMouseDown, true);
-      document.removeEventListener('mouseup', handleMouseUp, true);
+      document.body.style.cursor = 'auto';
+      window.removeEventListener("mousemove", updateMousePosition);
+      window.removeEventListener("mouseover", handleMouseOver);
+      document.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, []);
+  }, [isVisible]);
 
-  // Check if mouse is currently over arsenal area
-  const [isInArsenal, setIsInArsenal] = useState(false);
-  
-  useEffect(() => {
-    const checkArsenal = () => {
-      const elementAtMouse = document.elementFromPoint(position.x, position.y);
-      const arsenalSection = elementAtMouse?.closest('[data-arsenal]');
-      setIsInArsenal(!!arsenalSection);
-    };
-    
-    checkArsenal();
-  }, [position.x, position.y]);
-
-  // Don't render cursor if in arsenal area
-  if (isInArsenal) {
-    return null;
-  }
+  if (!isVisible) return null;
 
   return (
-    <div
-      className={`custom-cursor ${isHovering ? 'hovering' : ''} ${isClicking ? 'clicking' : ''}`}
-      style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
-        display: 'block',
-        visibility: 'visible'
-      }}
-    />
+    <>
+      <motion.div
+        className="fixed top-0 left-0 w-4 h-4 bg-teal-400 rounded-full pointer-events-none z-[9999] mix-blend-exclusion hidden md:block"
+        animate={{
+          x: mousePosition.x - 8,
+          y: mousePosition.y - 8,
+          scale: isHovering ? 4 : 1,
+          opacity: 1,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 500,
+          damping: 28,
+          mass: 0.5,
+        }}
+      />
+      <motion.div
+        className="fixed top-0 left-0 w-8 h-8 border border-teal-500/50 rounded-full pointer-events-none z-[9998] hidden md:block"
+        animate={{
+          x: mousePosition.x - 16,
+          y: mousePosition.y - 16,
+          scale: isHovering ? 1.5 : 1,
+          opacity: isHovering ? 0 : 1,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 250,
+          damping: 20,
+          mass: 0.8,
+        }}
+      />
+    </>
   );
 }
