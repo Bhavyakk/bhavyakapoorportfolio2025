@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { AnimatedStars } from "@/components/ui/animated-stars";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { ParallaxSection } from "@/components/ui/parallax-section";
-import { Rocket, Download } from "lucide-react";
+import { Rocket } from "lucide-react";
 
 export function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -63,22 +63,6 @@ export function Hero() {
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -skew-x-12 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
               <Rocket className="w-5 h-5 mr-2 relative z-10" />
               <span className="relative z-10">Projects</span>
-            </MagneticButton>
-
-            <MagneticButton
-              className="group w-48 h-14 border-2 border-white/30 text-white text-lg font-semibold rounded-full flex items-center justify-center hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-lg shadow-2xl hover:shadow-white/20"
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = '/RESUME_BHAVYA_KAPOOR_2025.pdf'; // ✅ public folder reference
-                link.download = 'RESUME_BHAVYA_KAPOOR_2025.pdf'; // ✅ clean filename
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }}
-              strength={0.4}
-            >
-              <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-              <span className="group-hover:animate-pulse">Download CV</span>
             </MagneticButton>
           </motion.div>
         </div>
