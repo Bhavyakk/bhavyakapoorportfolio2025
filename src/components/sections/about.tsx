@@ -97,39 +97,6 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Off-work Card 1 */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="md:col-span-6 bg-white/[0.02] border border-white/5 rounded-3xl p-8 flex items-center gap-6 group hover:bg-white/[0.04] transition-colors"
-          >
-            <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-teal-500/10 transition-colors">
-              <Camera className="w-7 h-7 text-gray-400 group-hover:text-teal-400 transition-colors" />
-            </div>
-            <div>
-              <h4 className="text-white text-xl font-medium mb-2">Cinematic Shots</h4>
-              <p className="text-gray-500 font-light">Snapping moments when I'm away from the screen.</p>
-            </div>
-          </motion.div>
-
-          {/* Off-work Card 2 */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="md:col-span-6 bg-white/[0.02] border border-white/5 rounded-3xl p-8 flex items-center gap-6 group hover:bg-white/[0.04] transition-colors"
-          >
-            <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500/10 transition-colors">
-              <Globe className="w-7 h-7 text-gray-400 group-hover:text-emerald-400 transition-colors" />
-            </div>
-            <div>
-              <h4 className="text-white text-xl font-medium mb-2">Exploring Places</h4>
-              <p className="text-gray-500 font-light">Finding good food spots and new environments.</p>
-            </div>
-          </motion.div>
 
         </div>
       </div>
