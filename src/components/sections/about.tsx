@@ -38,19 +38,16 @@ export function About() {
               <h3 className="font-serif text-3xl text-white mb-6">Hi, I'm Bhavya.</h3>
               <div className="space-y-6 text-gray-400 text-lg md:text-xl font-light leading-relaxed">
                 <p>
-                  I'm a UI/UX and visual designer with a passion for social media and branding. At its core, my work is about figuring out how to make digital experiences look better, function seamlessly, and communicate clearly.
+                  I'm a UI/UX and visual designer focused on making digital experiences look better, function seamlessly, and communicate clearly. 
                 </p>
                 <p>
-                  I've always been detail-oriented, which naturally drew me into the world of design. There's nothing quite like the process of taking a rough concept and shaping it into something people can actually use and connect with.
+                  I love taking rough concepts and shaping them into products people actually connect with. Lately, I've been diving deep into user behavior—exploring how intentional design makes everyday experiences easier.
                 </p>
                 <p>
-                  Lately, I've been diving deep into product design and user behavior—exploring how intentional design can make everyday digital experiences a little easier and a lot more enjoyable.
-                </p>
-                <p>
-                  Outside of the screen, you'll find me traveling, taking photos, or watching cricket. I'm always open to meeting new people, learning new things, and collaborating on interesting projects.
+                  Outside the screen, you'll find me traveling, taking photos, or watching cricket. Always open to meeting new people and collaborating on interesting projects.
                 </p>
                 <p className="text-teal-400 font-medium pt-2">
-                  P.S. — I'm currently taking on freelance projects. If you need a hand with visual or UI work, let's connect!
+                  P.S. — I'm currently taking on freelance projects. Let's connect!
                 </p>
               </div>
             </div>
