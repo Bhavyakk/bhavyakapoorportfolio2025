@@ -74,7 +74,7 @@ export function Education() {
   }, [isModalOpen]);
 
   return (
-    <section id="education" ref={containerRef} className="py-40 relative bg-[#030505] overflow-hidden">
+    <section id="education" ref={containerRef} className="py-24 md:py-40 relative bg-[#030505] overflow-hidden">
       
       {/* Massive Parallax Background Header */}
       <motion.div 
@@ -87,7 +87,7 @@ export function Education() {
       </motion.div>
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div className="space-y-40 md:space-y-64">
+        <div className="space-y-32 md:space-y-64 mt-16 md:mt-0">
           {timelineItems.map((item, index) => (
             <motion.div 
               key={item.id}
@@ -108,8 +108,8 @@ export function Education() {
               </div>
 
               {/* Content */}
-              <div className="w-full md:w-2/3 flex flex-col gap-8">
-                <h4 className="font-serif text-6xl md:text-8xl text-white leading-[0.9] tracking-tighter mix-blend-difference">
+              <div className="w-full md:w-2/3 flex flex-col gap-6 md:gap-8">
+                <h4 className="font-serif text-5xl sm:text-6xl md:text-8xl text-white leading-[1.1] md:leading-[0.9] tracking-tighter mix-blend-difference">
                   {item.title}
                 </h4>
                 <div className="flex flex-col gap-4">
@@ -175,6 +175,8 @@ export function Education() {
                 <img
                   src={selectedCertificate.certificateImage}
                   alt={`${selectedCertificate.title} Certificate`}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-1000"
                 />
               </div>

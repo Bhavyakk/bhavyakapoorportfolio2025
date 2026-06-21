@@ -143,17 +143,17 @@ export function Projects() {
       <section ref={targetRef} id="projects" className="relative h-[400vh] bg-[#030505]">
         <div className="sticky top-0 h-screen flex items-center overflow-hidden">
           
-          <motion.div style={{ x: xBgText }} className="absolute top-10 left-10 z-0 pointer-events-none">
-            <h2 className="font-serif text-[12vw] leading-[0.8] tracking-tighter text-[#f3f6f5] opacity-5">
+          <motion.div style={{ x: xBgText }} className="absolute top-10 left-6 md:left-10 z-0 pointer-events-none">
+            <h2 className="font-serif text-[20vw] md:text-[12vw] leading-[0.8] tracking-tighter text-[#f3f6f5] opacity-5">
               SELECTED<br/>WORKS
             </h2>
           </motion.div>
 
-          <motion.div style={{ x }} className="flex gap-16 px-[10vw] items-center relative z-10">
+          <motion.div style={{ x }} className="flex gap-8 md:gap-16 px-[10vw] items-center relative z-10">
             {projects.map((project, index) => (
               <div 
                 key={project.title}
-                className="w-[80vw] md:w-[60vw] h-[70vh] flex-shrink-0 group cursor-pointer relative hover-target"
+                className="w-[90vw] md:w-[60vw] h-[60vh] md:h-[70vh] flex-shrink-0 group cursor-pointer relative hover-target"
                 onClick={() => handleProjectClick(project)}
               >
                 <div className="w-full h-full relative overflow-hidden">
@@ -162,16 +162,18 @@ export function Projects() {
                     style={{ x: imageParallaxX }}
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-[120%] max-w-none h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 ease-[0.16,1,0.3,1]"
                   />
                   
                   {/* Cinematic Content Overlay */}
-                  <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 z-20 flex flex-col md:flex-row justify-between items-end transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 ease-[0.16,1,0.3,1]">
+                  <div className="absolute bottom-0 left-0 w-full p-6 md:p-16 z-20 flex flex-col md:flex-row justify-between items-start md:items-end transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 ease-[0.16,1,0.3,1]">
                     <div>
-                      <h3 className="font-serif text-5xl md:text-7xl text-white mb-4 tracking-tight mix-blend-difference">
+                      <h3 className="font-serif text-4xl md:text-7xl text-white mb-2 md:mb-4 tracking-tight mix-blend-difference">
                         {project.title}
                       </h3>
-                      <p className="text-xl md:text-2xl text-white/80 font-light mix-blend-difference">
+                      <p className="text-lg md:text-2xl text-white/80 font-light mix-blend-difference">
                         {project.subtitle}
                       </p>
                     </div>

@@ -63,7 +63,7 @@ export function Contact() {
         <div className="w-full overflow-hidden mt-auto flex justify-center items-end border-b border-white/10 pb-8">
           <motion.h1 
             style={{ scale: scaleText, y: yText }}
-            className="font-serif text-[18vw] leading-[0.7] tracking-tighter text-[#f3f6f5] uppercase mix-blend-difference hover-target cursor-default transform-origin-bottom"
+            className="font-serif text-[22vw] md:text-[18vw] leading-[0.7] tracking-tighter text-[#f3f6f5] uppercase mix-blend-difference hover-target cursor-default transform-origin-bottom"
           >
             LET'S TALK
           </motion.h1>

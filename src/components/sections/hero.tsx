@@ -44,7 +44,7 @@ export function Hero() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="overflow-hidden w-full"
             >
-              <h1 className="font-serif text-[15vw] leading-[0.8] tracking-[-0.04em] text-[#f3f6f5] uppercase hover-target mix-blend-difference">
+              <h1 className="font-serif text-[24vw] md:text-[15vw] leading-[0.8] tracking-[-0.04em] text-[#f3f6f5] uppercase hover-target mix-blend-difference">
                 BHAVYA
               </h1>
             </motion.div>
@@ -56,7 +56,7 @@ export function Hero() {
               transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="overflow-hidden w-full flex justify-end"
             >
-              <h1 className="font-serif text-[15vw] leading-[0.8] tracking-[-0.04em] text-transparent bg-clip-text bg-gradient-to-r from-teal-200 via-teal-400 to-emerald-500 uppercase hover-target">
+              <h1 className="font-serif text-[24vw] md:text-[15vw] leading-[0.8] tracking-[-0.04em] text-transparent bg-clip-text bg-gradient-to-r from-teal-200 via-teal-400 to-emerald-500 uppercase hover-target">
                 KAPOOR
               </h1>
             </motion.div>

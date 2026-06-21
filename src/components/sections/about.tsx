@@ -18,14 +18,14 @@ export function About() {
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
   return (
-    <section id="about" ref={containerRef} className="py-32 relative overflow-hidden bg-[#030505]">
+    <section id="about" ref={containerRef} className="py-20 md:py-32 relative overflow-hidden bg-[#030505]">
       <div className="container mx-auto px-6 relative z-10 max-w-7xl">
         
         {/* Section Header */}
-        <div className="mb-32">
+        <div className="mb-20 md:mb-32">
           <motion.h2 
             style={{ y }}
-            className="font-serif text-[8vw] md:text-[10vw] leading-[0.9] text-white/5 uppercase tracking-tighter"
+            className="font-serif text-[15vw] md:text-[10vw] leading-[0.9] text-white/5 uppercase tracking-tighter"
           >
             Behind the<br/><span className="text-white">Pixels</span>
           </motion.h2>
@@ -98,6 +98,8 @@ export function About() {
               <img 
                 src={bg__1_} 
                 alt="Bhavya Kapoor" 
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-1000"
               />
               <div className="absolute bottom-8 left-8 z-20 flex items-center gap-3 text-white font-serif text-2xl mix-blend-difference">
