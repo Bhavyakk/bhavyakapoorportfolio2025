@@ -16,9 +16,7 @@ export function Navigation() {
     setIsMobileMenuOpen(false); // Close mobile menu after navigation
   };
 
-  // Detect white sections (About and Education) based on scroll position
-  // Hero section: 0-1vh (black), About: 1-2vh (light), Education: 2-3vh (white), Projects: 3-4vh (black), Contact: 4+vh (black)
-  const isOverWhiteSection = scrollY > window.innerHeight * 0.8 && scrollY < window.innerHeight * 3;
+
 
   return (
     <>
@@ -35,10 +33,7 @@ export function Navigation() {
             {["home", "about", "education", "projects", "contact"].map((section) => (
               <motion.button
                 key={section}
-                className={`transition-all duration-300 capitalize text-sm md:text-lg font-medium ${isOverWhiteSection
-                    ? "text-black hover:text-transparent hover:bg-gradient-to-r hover:from-purple-500 hover:to-teal-400 hover:bg-clip-text"
-                    : "text-white hover:text-purple-400"
-                  }`}
+                className="transition-all duration-300 capitalize text-sm md:text-lg font-medium text-white/80 hover:text-teal-400"
                 whileHover={{ scale: 1.05 }}
                 onClick={() => scrollToSection(section)}
               >

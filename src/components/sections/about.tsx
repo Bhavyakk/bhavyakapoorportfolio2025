@@ -37,7 +37,7 @@ export function About() {
   return (
     <>
 
-      <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
+      <section id="about" className="py-20 bg-black particles-dark relative overflow-hidden">
 
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
@@ -82,36 +82,36 @@ export function About() {
                 <div className="mb-8">
                   <AnimatedText
                     text="Who Am I?"
-                    className="text-4xl md:text-5xl font-black bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent"
+                    className="text-4xl md:text-5xl font-black bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
                     delay={0}
                   />
-                  <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mt-4 rounded-full"></div>
+                  <div className="w-20 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 mt-4 rounded-full"></div>
                 </div>
 
                 {/* Rich Text Editor Simulation */}
                 <div className="relative">
                   {/* Text Content with Formatting */}
-                  <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200/50 relative overflow-hidden min-h-[400px] flex flex-col justify-center">
+                  <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/10 relative overflow-hidden min-h-[400px] flex flex-col justify-center">
                     {/* Subtle gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-purple-50/30 rounded-2xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-teal-900/10 to-emerald-900/10 rounded-2xl"></div>
 
                     <div className="relative z-10">
-                      <p className="text-lg text-gray-700 leading-relaxed font-medium mb-4">
+                      <p className="text-lg text-gray-300 leading-relaxed font-medium mb-4">
                         Hi, I'm Bhavya 👋
                       </p>
-                      <p className="text-lg text-gray-700 leading-relaxed font-medium mb-4">
+                      <p className="text-lg text-gray-300 leading-relaxed font-medium mb-4">
                         I design things that make sense and look damn good doing it. 👊
                       </p>
-                      <p className="text-lg text-gray-700 leading-relaxed font-medium mb-4">
+                      <p className="text-lg text-gray-300 leading-relaxed font-medium mb-4">
                         Product design, visual design, branding, marketing, I work across it all. I've shaped digital products in healthcare, edtech, AI apps, community, and events, and I bring the same level of obsession to every single one. Whether it's a complex product flow or a brand's visual identity, I make sure everything is intentional, sharp, and built to last.
                       </p>
-                      <p className="text-lg text-gray-700 leading-relaxed font-medium mb-4">
+                      <p className="text-lg text-gray-300 leading-relaxed font-medium mb-4">
                         On the brand side, I build Meta ad creatives and social strategies that give brands a real personality, not just a presence. The kind that people actually remember.
                       </p>
-                      <p className="text-lg text-gray-700 leading-relaxed font-medium mb-4">
+                      <p className="text-lg text-gray-300 leading-relaxed font-medium mb-4">
                         Good design solves. Great design sticks. That's the standard I work to.
                       </p>
-                      <p className="text-lg text-gray-700 leading-relaxed font-medium">
+                      <p className="text-lg text-gray-300 leading-relaxed font-medium">
                         Off work, I'm either sleeping for days, finding good food spots 🍜, exploring new places 🌍, or snapping some cool cinematic shots.😄
                       </p>
                     </div>
@@ -134,7 +134,7 @@ export function About() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h3 className="text-3xl md:text-4xl font-black mb-12 text-black">
+              <h3 className="text-3xl md:text-4xl font-black mb-12 text-white">
                 My Expertise
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">

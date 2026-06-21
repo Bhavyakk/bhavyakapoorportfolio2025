@@ -431,75 +431,6 @@
 
 .subtitle-glow { text-shadow: 0 0 8px rgba(78,205,196,0.2); }
 
-/* ── About & Education section overrides (were white, now dark) ── */
-#about {
-  background: linear-gradient(
-    135deg,
-    rgba(8,20,18,0.97)  0%,
-    rgba(6,18,15,0.99) 100%
-  ) !important;
-}
-#about .bg-white,
-#about .bg-white\/20,
-#about .bg-white\/30,
-#about .bg-gradient-to-br.from-gray-50,
-#about section {
-  background: rgba(255,255,255,0.04) !important;
-  border-color: rgba(78,205,196,0.15) !important;
-}
-/* Rich-text card in About */
-#about .bg-white.rounded-2xl {
-  background: rgba(10,28,24,0.8) !important;
-  border-color: rgba(78,205,196,0.18) !important;
-}
-#about .text-gray-700,
-#about .text-gray-900,
-#about .text-black {
-  color: #c8ddd9 !important;
-}
-#about h3 {
-  background: var(--gradient-text) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-}
-#about .bg-gradient-to-r.from-purple-500.to-cyan-500 {
-  background: linear-gradient(to right, #4ecdc4, #2a9d8f) !important;
-}
-
-#education {
-  background: rgba(6,16,14,0.98) !important;
-}
-#education .text-gray-900,
-#education .text-gray-700,
-#education .text-gray-600 {
-  color: #c8ddd9 !important;
-}
-#education .bg-white\/20,
-#education .bg-white\/30 {
-  background: rgba(255,255,255,0.04) !important;
-  border-color: rgba(78,205,196,0.15) !important;
-}
-#education h3,
-#education h4,
-#education h5 {
-  color: #e8f0ee !important;
-}
-#education .text-blue-600 {
-  color: #4ecdc4 !important;
-}
-#education .bg-gradient-to-r.from-blue-500.to-purple-600 {
-  background: linear-gradient(135deg, #4ecdc4, #2a9d8f) !important;
-}
-#education .bg-gradient-to-r.from-teal-500.to-cyan-600 {
-  background: linear-gradient(135deg, #2a9d8f, #264653) !important;
-}
-
-/* Skill badges — teal tint */
-.skill-badge-cyan { --badge-color: #4ecdc4; }
-.skill-badge-purple { --badge-color: #4ecdc4; }
-.skill-badge-blue { --badge-color: #2a9d8f; }
-
 @layer base {
   * { @apply border-border; }
   body { @apply bg-background text-foreground; }
@@ -508,3 +439,6 @@
 /* Hide summary arrow */
 summary::-webkit-details-marker { display: none !important; }
 summary::marker { content: "" !important; }
+
+
+

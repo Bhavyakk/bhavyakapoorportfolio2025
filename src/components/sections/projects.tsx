@@ -363,7 +363,7 @@ export function Projects() {
             className="text-5xl md:text-6xl font-black bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
             delay={0}
           />
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-cyan-400 mx-auto mt-6 rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-emerald-400 mx-auto mt-6 rounded-full"></div>
           <motion.p
             className="text-xl text-gray-300 max-w-2xl mx-auto font-light mt-6"
             initial={{ opacity: 0, y: 20 }}

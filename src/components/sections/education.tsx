@@ -60,23 +60,23 @@ export function Education() {
   }, [isModalOpen]);
 
   return (
-    <section id="education" className="py-20 bg-white">
+    <section id="education" className="py-20 bg-black particles-dark relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           {/* Heading */}
           <div className="text-center mb-16">
             <AnimatedText
               text="Education & Achievements"
-              className="text-4xl md:text-5xl font-black bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-4"
+              className="text-4xl md:text-5xl font-black bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4"
               delay={0}
             />
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-4 rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 mx-auto mb-4 rounded-full"></div>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-xl text-gray-600 max-w-2xl mx-auto font-light"
+              className="text-xl text-gray-400 max-w-2xl mx-auto font-light"
             >
               Building bridges between academic knowledge and creative innovation
             </motion.p>
@@ -92,19 +92,19 @@ export function Education() {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <div className="bg-white/20 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/30">
+              <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/10">
                 <div className="flex items-center space-x-4 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
                     <GraduationCap className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900">B.E. in Computer Science</h3>
-                    <p className="text-gray-600 font-medium">Chandigarh University</p>
+                    <h3 className="text-2xl font-bold text-white">B.E. in Computer Science</h3>
+                    <p className="text-gray-400 font-medium">Chandigarh University</p>
                     <p className="text-gray-500 text-sm">2021-2025</p>
                   </div>
                 </div>
                 
-                <p className="text-gray-700 text-lg leading-relaxed">
+                <p className="text-gray-400 text-lg leading-relaxed">
                   Explored design and tech side by side — from building interfaces to leading student initiatives.
                 </p>
               </div>
@@ -118,7 +118,7 @@ export function Education() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h4 className="text-2xl font-bold text-gray-900 mb-8">Highlights</h4>
+              <h4 className="text-2xl font-bold text-white mb-8">Highlights</h4>
               
               {highlights.map((highlight, index) => (
                 <motion.div
@@ -130,7 +130,7 @@ export function Education() {
                   className="group"
                 >
                   <div 
-                    className="bg-white/30 backdrop-blur-md rounded-xl p-6 border border-white/40 transition-all duration-200 shadow-lg cursor-pointer"
+                    className="bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10 transition-all duration-200 shadow-lg cursor-pointer hover:border-teal-500/30"
                     onClick={() => handleCertificateClick(highlight)}
                   >
                     <div className="flex items-start space-x-4">
@@ -138,9 +138,9 @@ export function Education() {
                         {highlight.icon}
                       </div>
                       <div className="flex-1">
-                        <h5 className="font-bold text-gray-900 text-lg mb-1">{highlight.title}</h5>
-                        <p className="text-gray-600 text-sm leading-relaxed">{highlight.subtitle}</p>
-                        <p className="text-blue-600 text-xs mt-2 font-medium">Click to view certificate</p>
+                        <h5 className="font-bold text-white text-lg mb-1">{highlight.title}</h5>
+                        <p className="text-gray-400 text-sm leading-relaxed">{highlight.subtitle}</p>
+                        <p className="text-teal-400 text-xs mt-2 font-medium">Click to view certificate</p>
                       </div>
                     </div>
                   </div>
