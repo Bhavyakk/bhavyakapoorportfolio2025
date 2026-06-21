@@ -35,16 +35,22 @@ export function About() {
             className="md:col-span-8 row-span-2 bg-white/[0.02] border border-white/5 rounded-3xl p-8 md:p-12 backdrop-blur-sm flex flex-col justify-between group hover:bg-white/[0.04] transition-colors duration-500"
           >
             <div className="mb-8">
-              <h3 className="font-serif text-3xl text-white mb-6">Hello, I'm Bhavya</h3>
+              <h3 className="font-serif text-3xl text-white mb-6">Hi, I'm Bhavya.</h3>
               <div className="space-y-6 text-gray-400 text-lg md:text-xl font-light leading-relaxed">
                 <p>
-                  I'm a Product Designer currently building DUUET, a skincare app with over 2,000 active users.
+                  I work as a UI/UX and visual designer, and I also enjoy working on social media and branding projects. Most of my work involves figuring out how to make things look better, work better, and communicate more clearly.
                 </p>
                 <p>
-                  I specialize in translating complex user needs into intuitive, high-converting interfaces. Whether I'm designing a consumer app from the ground up or prototyping an educational tool that earns a NASA Global Nominee ranking, my focus is always on clarity, empathy, and measurable impact.
+                  I've always been someone who pays attention to details, which is probably why I ended up in design. I enjoy the process of taking an idea from a rough concept to something people can actually use and connect with.
                 </p>
                 <p>
-                  I don't just push pixels; I talk to users, map the architecture, and design systems that scale.
+                  Lately, I've been spending a lot of time exploring product design, user behavior, and how good design can make everyday experiences a little easier.
+                </p>
+                <p>
+                  Outside of work, I enjoy traveling, photography, and watching cricket. Always open to meeting new people, learning new things, and working on interesting projects.
+                </p>
+                <p className="text-teal-400 font-medium pt-2">
+                  P.S.: I'm freelancing now. Feel free to connect if you need assistance with any kind of visual/UI work.
                 </p>
               </div>
             </div>
