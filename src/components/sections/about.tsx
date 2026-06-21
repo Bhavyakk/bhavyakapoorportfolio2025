@@ -9,7 +9,7 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-32 bg-noise relative overflow-hidden">
+    <section id="about" className="py-32  relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         
         {/* Section Header */}

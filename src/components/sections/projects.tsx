@@ -203,7 +203,7 @@ export function Projects() {
     <>
       <section id="projects" className="py-32 bg-[#030505] relative overflow-hidden">
         {/* Subtle Background Glow */}
-        <div className="absolute inset-0 bg-noise pointer-events-none" />
+        <div className="absolute inset-0  pointer-events-none" />
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-teal-900/10 rounded-full blur-[150px] pointer-events-none transform translate-x-1/2 -translate-y-1/2" />
 
         <div className="container mx-auto px-6 max-w-7xl relative z-10">

@@ -72,7 +72,7 @@ export function Education() {
   }, [isModalOpen]);
 
   return (
-    <section id="education" className="py-32 bg-noise relative overflow-hidden">
+    <section id="education" className="py-32  relative overflow-hidden">
       <div className="container mx-auto px-6 max-w-5xl relative z-10">
         
         {/* Header */}
@@ -188,7 +188,7 @@ export function Education() {
                 </button>
               </div>
               
-              <div className="p-6 md:p-8 overflow-y-auto bg-noise">
+              <div className="p-6 md:p-8 overflow-y-auto ">
                 <img
                   src={selectedCertificate.certificateImage}
                   alt={`${selectedCertificate.title} Certificate`}
