@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import { AnimatedText } from "../ui/animated-text";
+import { useState } from "react";
 import { ProjectModal } from "../ui/project-modal";
-import { Users, Search, Palette, TestTube, Smartphone, Target, Eye } from "lucide-react";
+import { Users, Search, Palette, TestTube, Smartphone, Target, Eye, ArrowUpRight } from "lucide-react";
 
 import duuetCareImage from "../../assets/OC 05 (3)_1751839575431.png";
 import duuetUserResearchImage from "../../assets/duuet-user-research.png";
@@ -14,16 +13,13 @@ import eventServicesImage from "../../assets/OC 07_1751857969313.png";
 import socialMediaCreativesImage from "../../assets/OC 08 (4)_1751922322277.png";
 
 // Grahan project images  
-import grahanMedalImage from "../../assets/IMG_6516_1754209413118.jpg";
-import grahanPresentationImage from "../../assets/grahan-app.png";
-import grahanTeamImage from "../../assets/grahan-team-screenshot.png";
-import grahanToggleGif from "../../assets/Untitled design_1754213170729.gif";
 import grahanResearchImage from "../../assets/lunar-quiz-research.png";
+import grahanToggleGif from "../../assets/Untitled design_1754213170729.gif";
+import grahanTeamImage from "../../assets/grahan-team-screenshot.png";
 
 export function Projects() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
 
   const handleProjectClick = (project: any) => {
     setSelectedProject(project);
@@ -50,36 +46,6 @@ export function Projects() {
         { label: "Status", value: "Live Product" },
         { label: "Target Age", value: "20-30" },
         { label: "Role", value: "First Design Intern" }
-      ],
-      keyActivities: [
-        {
-          title: "Researching Gen Z Habits",
-          description: "Studied how 20–30-year-olds discover, trust, and buy skincare/haircare."
-        },
-        {
-          title: "User Interviews & Feedback", 
-          description: "Collected real opinions to shape features and priorities."
-        },
-        {
-          title: "Wireframes & User Flows",
-          description: "Mapped out journeys for shopping, community sharing, and product insights."
-        },
-        {
-          title: "UI Design & Visual Identity",
-          description: "Crafted a bold, Gen Z-friendly look that feels playful yet credible."
-        },
-        {
-          title: "Prototyping & Testing",
-          description: "Built and tested interactive prototypes to refine key interactions."
-        },
-        {
-          title: "Micro-Interactions & UI Polish",
-          description: "Added subtle animations and polished details for a lively user experience."
-        },
-        {
-          title: "Iterating with Feedback Loops",
-          description: "Continuously improved designs with user and stakeholder inputs."
-        }
       ],
       process: [
         {
@@ -121,66 +87,6 @@ export function Projects() {
             "Changed button text, moved things around, made it clearer"
           ],
           outcome: "App launched with 2000+ active users and growing."
-        }
-      ]
-    },
-    {
-      title: "Party & Entertainment App",
-      subtitle: "Event Booking for 18-30s",
-      challenge: "Most existing event apps felt outdated and didn't match how people aged 18-30 discover and share events in real life—visually, quickly, and socially.",
-      solution: "Designed a party and entertainment booking app with bold, dark-themed UI and neon accents that feel energetic and modern, matching how this audience thinks and moves.",
-      description: "Party and entertainment booking app for users aged 18-30 with dark theme, neon highlights, and visual-first discovery.",
-      image: partyAppImage
-      ,
-      tags: ["Mobile Design", "Events", "18-30s", "Visual Discovery"],
-      color: "cyan" as const,
-      liveUrl: "https://www.figma.com/design/1Jttx4K4hG3gAPYCBTVsRy/PARTY---EVENT-SERVICE-APP?node-id=18-130&t=kV9sw4Bhzb70eQWL-1",
-      role: "Product Designer",
-      timeline: "1.5 months",
-      metrics: [
-        { label: "Screens Designed", value: "20+" },
-        { label: "Timeline", value: "1.5 months" },
-        { label: "Target Age", value: "18-30" },
-        { label: "Role", value: "Product Designer" }
-      ],
-      process: [
-        {
-          icon: <Search className="w-6 h-6 text-black" />,
-          title: "Research",
-          description: "Looked at how young people actually find and book events",
-          details: [
-            "Existing event apps looked like they were from 2015",
-            "People share events through Instagram stories, not apps",
-            "Everyone wants to see what the vibe looks like before going",
-            "Nobody wants to fill out long forms to book tickets"
-          ],
-          outcome: "Young people want visual, fast, social event discovery."
-        },
-        {
-          icon: <Palette className="w-6 h-6 text-black" />,
-          title: "Visual Design",
-          description: "Made it dark, bold, and energetic like the events themselves",
-          details: [
-            "Dark background because it feels more party-like",
-            "Bright neon colors for buttons and highlights",
-            "Big event photos so you know what you're getting into",
-            "Quick swipe-through cards instead of boring lists",
-            "One-tap booking - no endless forms"
-          ],
-          outcome: "Interface that actually matches the energy of going out.",
-          image: undefined
-        },
-        {
-          icon: <Smartphone className="w-6 h-6 text-black" />,
-          title: "Full App Design",
-          description: "Designed 20+ screens in about 6 weeks",
-          details: [
-            "Onboarding that doesn't suck",
-            "Home feed with swipeable event cards",
-            "Event details with photos and quick booking",
-            "Profile and friends features for social discovery"
-          ],
-          outcome: "Complete party app that feels like social media."
         }
       ]
     },
@@ -246,6 +152,26 @@ export function Projects() {
       ]
     },
     {
+      title: "Party & Entertainment App",
+      subtitle: "Event Booking for 18-30s",
+      challenge: "Most existing event apps felt outdated and didn't match how people aged 18-30 discover and share events in real life—visually, quickly, and socially.",
+      solution: "Designed a party and entertainment booking app with bold, dark-themed UI and neon accents that feel energetic and modern, matching how this audience thinks and moves.",
+      description: "Party and entertainment booking app for users aged 18-30 with dark theme, neon highlights, and visual-first discovery.",
+      image: partyAppImage,
+      tags: ["Mobile Design", "Events", "18-30s", "Visual Discovery"],
+      color: "cyan" as const,
+      liveUrl: "https://www.figma.com/design/1Jttx4K4hG3gAPYCBTVsRy/PARTY---EVENT-SERVICE-APP?node-id=18-130&t=kV9sw4Bhzb70eQWL-1",
+      role: "Product Designer",
+      timeline: "1.5 months",
+      metrics: [
+        { label: "Screens Designed", value: "20+" },
+        { label: "Timeline", value: "1.5 months" },
+        { label: "Target Age", value: "18-30" },
+        { label: "Role", value: "Product Designer" }
+      ],
+      process: []
+    },
+    {
       title: "ANTRIKSH Space App",
       subtitle: "Space Exploration Education",
       challenge: "Space science education often feels distant and hard to relate to for everyday users.",
@@ -255,23 +181,8 @@ export function Projects() {
       tags: ["Space", "Education", "UI Design"],
       color: "cyan" as const,
       liveUrl: "https://www.figma.com/design/qIu69BaUttOHk960WYNEzN/ANTRIKSH?node-id=37-2&t=BaKROVGCp11BBWEE-1",
-      metrics: [
-        { label: "Educational Focus", value: "Space Science" },
-        { label: "Target Audience", value: "General Public" }
-      ],
-      process: [
-        {
-          icon: <Search className="w-6 h-6 text-black" />,
-          title: "Space Education Research",
-          description: "Researched how to make space science engaging for general audiences",
-          details: [
-            "Studied existing space education apps",
-            "Found need for visual storytelling",
-            "Identified curiosity as key motivator"
-          ],
-          outcome: "Understanding that interactive visuals make space concepts more accessible."
-        }
-      ]
+      metrics: [],
+      process: []
     },
     {
       title: "University Homepage",
@@ -283,183 +194,110 @@ export function Projects() {
       tags: ["Web Design", "University", "Research"],
       color: "purple" as const,
       liveUrl: "https://www.figma.com/design/QbwiNs7P9GiXxka8XX8Kwn/CUCC?node-id=2212-75&t=TkICOh1ua556ejYR-1",
-      metrics: [
-        { label: "Research Based", value: "User Focused" },
-        { label: "Modern Design", value: "Contemporary" }
-      ],
-      process: [
-        {
-          icon: <Users className="w-6 h-6 text-black" />,
-          title: "University Research",
-          description: "Studied current university website trends and user needs",
-          details: [
-            "Analyzed modern university designs",
-            "Researched student navigation patterns",
-            "Identified key information priorities"
-          ],
-          outcome: "Clear understanding of what makes university websites effective."
-        }
-      ]
-    },
-    {
-      title: "Social Media Campaigns",
-      subtitle: "Brand Campaign Design",
-      challenge: "Creating consistent visual identity across multiple social media campaigns and platforms.",
-      solution: "Developed cohesive design system for social media campaigns with consistent branding and engaging visuals.",
-      description: "Creative designs for various social media campaigns with consistent brand identity and engaging visuals.",
-      image: socialMediaCreativesImage,
-      tags: ["Social Media", "Branding", "Campaigns"],
-      color: "blue" as const,
-      liveUrl: "https://www.figma.com/design/yh1oXLg13y9W0hyRhDHMwo/Social-Media-Creatives?node-id=1-4&t=buwF0Q9XZq1OWero-1",
-      metrics: [
-        { label: "Campaign Types", value: "Multiple" },
-        { label: "Brand Consistency", value: "High" }
-      ],
-      process: [
-        {
-          icon: <Palette className="w-6 h-6 text-black" />,
-          title: "Brand Development",
-          description: "Created consistent visual identity across campaigns",
-          details: [
-            "Developed brand color palettes",
-            "Created consistent typography system",
-            "Designed adaptable layouts for different platforms"
-          ],
-          outcome: "Cohesive brand presence across all social media channels."
-        }
-      ]
+      metrics: [],
+      process: []
     }
   ];
 
-  const [scrollX, setScrollX] = useState(0);
-  
-  // Create enough copies for seamless infinite scroll
-  const infiniteProjects = Array(10).fill(projects).flat();
-
-  // Smooth infinite scroll with requestAnimationFrame
-  useEffect(() => {
-    let animationId: number;
-    
-    const animate = () => {
-      if (!isHovered) {
-        setScrollX(prev => prev - 4); // Increased to 4px movement per frame for faster, smooth scroll
-      }
-      animationId = requestAnimationFrame(animate);
-    };
-    
-    animationId = requestAnimationFrame(animate);
-    
-    return () => cancelAnimationFrame(animationId);
-  }, [isHovered]);
-
   return (
     <>
+      <section id="projects" className="py-32 bg-[#030505] relative overflow-hidden">
+        {/* Subtle Background Glow */}
+        <div className="absolute inset-0 bg-noise pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-teal-900/10 rounded-full blur-[150px] pointer-events-none transform translate-x-1/2 -translate-y-1/2" />
 
-      <section id="projects" className="py-20 bg-black particles-dark relative overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <AnimatedText
-            text="Featured Projects"
-            className="text-5xl md:text-6xl font-black bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
-            delay={0}
-          />
-          <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-emerald-400 mx-auto mt-6 rounded-full"></div>
-          <motion.p
-            className="text-xl text-gray-300 max-w-2xl mx-auto font-light mt-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            Design work that solves real problems
-          </motion.p>
-        </div>
-        
-        {/* Carousel Container */}
-        <div className="relative">
-          <div 
-            className="relative overflow-hidden"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            {/* Straight Running Carousel Track */}
-            <div className="relative overflow-hidden">
-            <div 
-              className="flex gap-8"
-              style={{ 
-                transform: `translateX(${scrollX}px)`,
-                width: 'max-content',
-                willChange: 'transform',
-                transition: isHovered ? 'transform 0.3s ease-out' : 'none'
-              }}
+        <div className="container mx-auto px-6 max-w-7xl relative z-10">
+          
+          <div className="mb-24 flex justify-between items-end border-b border-white/10 pb-8">
+            <motion.h2 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="font-serif text-5xl md:text-7xl text-white"
             >
-              {infiniteProjects.map((project, index) => (
-                <div
-                  key={`${project.title}-${index}`}
-                  className="flex-shrink-0 w-80"
+              Selected<br />Works.
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="hidden md:block text-gray-500 uppercase tracking-widest text-sm font-medium text-right max-w-[200px]"
+            >
+              Design work that solves real problems
+            </motion.p>
+          </div>
+          
+          {/* Asymmetric Project Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+            
+            {projects.map((project, index) => {
+              // Determine layout class based on index for asymmetry
+              let layoutClass = "";
+              if (index === 0) layoutClass = "md:col-span-12"; // First project full width
+              else if (index === 1 || index === 2) layoutClass = "md:col-span-6"; // Next two split 50/50
+              else if (index === 3) layoutClass = "md:col-span-8"; // Then one large
+              else layoutClass = "md:col-span-4"; // And one small
+
+              const isFullWidth = index === 0;
+
+              return (
+                <motion.div
+                  key={project.title}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7, delay: index * 0.1 }}
+                  className={`${layoutClass} group cursor-pointer`}
+                  onClick={() => handleProjectClick(project)}
                 >
-                  <motion.div
-                    className="group bg-white/5 backdrop-blur-lg border border-white/20 rounded-xl overflow-hidden hover:border-white/40 transition-all duration-300 cursor-pointer h-full flex flex-col shadow-2xl hover:shadow-white/10"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
-                    onClick={() => handleProjectClick(project)}
-                  >
-                    <div className="aspect-video overflow-hidden relative">
+                  <div className={`relative rounded-3xl overflow-hidden bg-white/[0.02] border border-white/5 group-hover:border-white/10 transition-colors duration-500 flex flex-col ${isFullWidth ? 'md:flex-row h-auto md:h-[600px]' : 'h-full min-h-[500px]'}`}>
+                    
+                    {/* Image Container */}
+                    <div className={`relative overflow-hidden ${isFullWidth ? 'md:w-[60%] h-[300px] md:h-full' : 'h-[300px] w-full'}`}>
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-[0.22,1,0.36,1]"
                       />
-                      
-                      {/* Hover Overlay */}
-                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <div className="text-center">
-                          <Eye className="w-6 h-6 text-white mx-auto mb-2" />
-                          <p className="text-white text-sm font-medium">View Design Process</p>
-                        </div>
-                      </div>
                     </div>
-                    
-                    <div className="p-6 flex flex-col flex-1">
-                      <h3 className="text-lg font-semibold text-white mb-2">{project.title}</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1">{project.description}</p>
-                      
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tags.map((tag: string) => (
-                          <span
-                            key={tag}
-                            className="px-2 py-1 bg-gray-800 text-gray-300 text-xs rounded"
-                          >
+
+                    {/* Content Container */}
+                    <div className={`flex flex-col p-8 md:p-10 justify-between ${isFullWidth ? 'md:w-[40%]' : 'w-full flex-1'}`}>
+                      <div>
+                        <div className="flex justify-between items-start mb-4">
+                          <h3 className="text-3xl font-serif text-white group-hover:text-teal-300 transition-colors">{project.title}</h3>
+                          <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center -rotate-45 group-hover:rotate-0 group-hover:bg-teal-500 group-hover:text-[#030505] transition-all duration-300 text-gray-400">
+                            <ArrowUpRight className="w-5 h-5" />
+                          </div>
+                        </div>
+                        <p className="text-gray-400 font-light text-lg mb-8">{project.subtitle}</p>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2 mt-auto">
+                        {project.tags.slice(0, 3).map((tag: string) => (
+                          <span key={tag} className="px-3 py-1.5 bg-white/5 text-gray-400 text-xs tracking-wider uppercase font-medium rounded-full border border-white/5">
                             {tag}
                           </span>
                         ))}
                       </div>
-                      
-                      <div className="mt-auto">
-
-                        <button className="w-full bg-white text-black py-2 px-4 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors">
-                          {project.title === "Social Media Campaigns" ? "View Creative Work" : 
-                           project.title === "DUUET" ? "View Design Process" : "View Case Study"}
-                        </button>
-                      </div>
                     </div>
-                  </motion.div>
-                </div>
-              ))}
-            </div>
-          </div>
+                    
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
-      </div>
 
-      {/* Project Modal */}
-      {selectedProject && (
-        <ProjectModal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-          project={selectedProject}
-        />
-      )}
+        {/* Project Modal */}
+        {selectedProject && (
+          <ProjectModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            project={selectedProject}
+          />
+        )}
       </section>
     </>
   );

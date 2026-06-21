@@ -1,161 +1,138 @@
 import { motion } from "framer-motion";
-import { AnimatedText } from "@/components/ui/animated-text";
-import { SkillBadge } from "@/components/ui/skill-badge";
-import { TextReveal } from "@/components/ui/text-reveal";
-import { GlassCard } from "@/components/ui/glass-card";
-
-import { Bold, Italic, Underline, Link, User, Palette, Figma, Layers, Search, Award, Smartphone, Image } from "lucide-react";
-import { useState, useEffect } from "react";
-
+import { ArrowRight, MapPin, Coffee, Camera, Globe } from "lucide-react";
 import bg__1_ from "../../assets/bg-1.png";
 
 export function About() {
-  const [showToolbar, setShowToolbar] = useState(false);
-  const [animationStep, setAnimationStep] = useState(0);
-
-  useEffect(() => {
-    // Simpler animation with longer delays to reduce processing
-    const timer = setTimeout(() => {
-      setShowToolbar(true);
-      setTimeout(() => setAnimationStep(1), 3000); // Bold after 3s
-      setTimeout(() => setAnimationStep(2), 6000); // Italic after 6s  
-      setTimeout(() => setAnimationStep(3), 9000); // Link after 9s
-    }, 1500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   const skills = [
-    { skill: "UI/UX Design", level: 95, icon: "Palette", color: "cyan" as const },
-    { skill: "Figma", level: 92, icon: "Figma", color: "purple" as const },
-    { skill: "Canva", level: 90, icon: "Image", color: "cyan" as const },
-    { skill: "Design Research", level: 88, icon: "Search", color: "purple" as const },
-    { skill: "Branding", level: 87, icon: "Award", color: "blue" as const },
-    { skill: "Wireframing & Prototyping", level: 85, icon: "Layers", color: "blue" as const },
+    "UI/UX Design", "Figma", "Design Research", 
+    "Branding", "Interaction Design", "Prototyping"
   ];
 
   return (
-    <>
-
-      <section id="about" className="py-20 bg-black particles-dark relative overflow-hidden">
-
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            {/* Main Content */}
-            <div className="grid lg:grid-cols-2 gap-8 items-center mb-20">
-              {/* Left Half - Profile Image */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="flex justify-center lg:justify-start"
-              >
-                <div className="relative">
-                  <div className="w-72 md:w-80 lg:w-96 h-80 md:h-96 lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-purple-100 to-teal-100">
-                    <img
-                      src={bg__1_}
-                      alt="Bhavya Kapoor - UI/UX Designer and Social Media Strategist profile photo"
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                      loading="eager"
-                      decoding="async"
-                      onLoad={(e) => {
-                        e.currentTarget.style.filter = 'blur(0)';
-                      }}
-                      style={{ filter: 'blur(2px)', transition: 'filter 0.3s ease' }}
-                    />
-                  </div>
-                  {/* Gradient Glow */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/20 to-teal-400/20 blur-xl -z-10"></div>
-                </div>
-              </motion.div>
-
-              {/* Right Half - Rich Text Editor Simulation */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="space-y-6"
-              >
-                {/* Typewriter Heading */}
-                <div className="mb-8">
-                  <AnimatedText
-                    text="Who Am I?"
-                    className="text-4xl md:text-5xl font-black bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
-                    delay={0}
-                  />
-                  <div className="w-20 h-1 bg-gradient-to-r from-teal-400 to-emerald-500 mt-4 rounded-full"></div>
-                </div>
-
-                {/* Rich Text Editor Simulation */}
-                <div className="relative">
-                  {/* Text Content with Formatting */}
-                  <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/10 relative overflow-hidden min-h-[400px] flex flex-col justify-center">
-                    {/* Subtle gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-teal-900/10 to-emerald-900/10 rounded-2xl"></div>
-
-                    <div className="relative z-10">
-                      <p className="text-lg text-gray-300 leading-relaxed font-medium mb-4">
-                        Hi, I'm Bhavya 👋
-                      </p>
-                      <p className="text-lg text-gray-300 leading-relaxed font-medium mb-4">
-                        I design things that make sense and look damn good doing it. 👊
-                      </p>
-                      <p className="text-lg text-gray-300 leading-relaxed font-medium mb-4">
-                        Product design, visual design, branding, marketing, I work across it all. I've shaped digital products in healthcare, edtech, AI apps, community, and events, and I bring the same level of obsession to every single one. Whether it's a complex product flow or a brand's visual identity, I make sure everything is intentional, sharp, and built to last.
-                      </p>
-                      <p className="text-lg text-gray-300 leading-relaxed font-medium mb-4">
-                        On the brand side, I build Meta ad creatives and social strategies that give brands a real personality, not just a presence. The kind that people actually remember.
-                      </p>
-                      <p className="text-lg text-gray-300 leading-relaxed font-medium mb-4">
-                        Good design solves. Great design sticks. That's the standard I work to.
-                      </p>
-                      <p className="text-lg text-gray-300 leading-relaxed font-medium">
-                        Off work, I'm either sleeping for days, finding good food spots 🍜, exploring new places 🌍, or snapping some cool cinematic shots.😄
-                      </p>
-                    </div>
-
-
-
-
-
-
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Skills Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h3 className="text-3xl md:text-4xl font-black mb-12 text-white">
-                My Expertise
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                {skills.map((skill, index) => (
-                  <GlassCard key={skill.skill} intensity="medium">
-                    <SkillBadge
-                      skill={skill.skill}
-                      level={skill.level}
-                      icon={skill.icon}
-                      color={skill.color}
-                      delay={index * 0.1}
-                    />
-                  </GlassCard>
-                ))}
-              </div>
-            </motion.div>
-
-
-          </div>
+    <section id="about" className="py-32 bg-noise relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
+        
+        {/* Section Header */}
+        <div className="mb-20">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-serif text-5xl md:text-7xl text-white mb-6"
+          >
+            Behind the<br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-emerald-500">Pixels.</span>
+          </motion.h2>
         </div>
-      </section>
-    </>
+
+        {/* Bento Box Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-7xl mx-auto auto-rows-[minmax(180px,auto)]">
+          
+          {/* Main Bio Card (Spans 8 columns) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="md:col-span-8 row-span-2 bg-white/[0.02] border border-white/5 rounded-3xl p-8 md:p-12 backdrop-blur-sm flex flex-col justify-between group hover:bg-white/[0.04] transition-colors duration-500"
+          >
+            <div className="mb-8">
+              <h3 className="font-serif text-3xl text-white mb-6">Hello, I'm Bhavya</h3>
+              <div className="space-y-6 text-gray-400 text-lg md:text-xl font-light leading-relaxed">
+                <p>
+                  I design things that make sense and look damn good doing it. Product design, visual design, branding, marketing — I work across it all.
+                </p>
+                <p>
+                  I've shaped digital products in healthcare, edtech, AI apps, community, and events, bringing the same level of obsession to every single one. Whether it's a complex flow or a brand identity, I ensure everything is intentional and built to last.
+                </p>
+                <p>
+                  Good design solves. <span className="text-teal-400 font-medium">Great design sticks.</span> That's the standard I work to.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 text-sm text-gray-500 uppercase tracking-widest font-medium">
+              <span>Scroll to explore</span>
+              <ArrowRight className="w-4 h-4" />
+            </div>
+          </motion.div>
+
+          {/* Photo Card (Spans 4 columns) */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="md:col-span-4 row-span-2 rounded-3xl overflow-hidden relative group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
+            <img 
+              src={bg__1_} 
+              alt="Bhavya Kapoor" 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute bottom-6 left-6 z-20 flex items-center gap-2 text-white/90 font-medium">
+              <MapPin className="w-4 h-4 text-teal-400" />
+              <span>India</span>
+            </div>
+          </motion.div>
+
+          {/* Skills Marquee Card (Spans 12 columns) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="md:col-span-12 bg-teal-950/20 border border-teal-900/30 rounded-3xl p-8 overflow-hidden flex items-center relative"
+          >
+            <div className="absolute left-0 w-32 h-full bg-gradient-to-r from-[#030505] to-transparent z-10" />
+            <div className="absolute right-0 w-32 h-full bg-gradient-to-l from-[#030505] to-transparent z-10" />
+            
+            <div className="flex gap-12 whitespace-nowrap animate-scroll items-center">
+              {[...skills, ...skills, ...skills].map((skill, i) => (
+                <div key={i} className="flex items-center gap-6">
+                  <span className="text-2xl md:text-4xl font-serif text-teal-100/40 hover:text-teal-400 transition-colors cursor-default">
+                    {skill}
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-teal-500/30" />
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Off-work Card 1 */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="md:col-span-6 bg-white/[0.02] border border-white/5 rounded-3xl p-8 flex items-center gap-6 group hover:bg-white/[0.04] transition-colors"
+          >
+            <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-teal-500/10 transition-colors">
+              <Camera className="w-7 h-7 text-gray-400 group-hover:text-teal-400 transition-colors" />
+            </div>
+            <div>
+              <h4 className="text-white text-xl font-medium mb-2">Cinematic Shots</h4>
+              <p className="text-gray-500 font-light">Snapping moments when I'm away from the screen.</p>
+            </div>
+          </motion.div>
+
+          {/* Off-work Card 2 */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="md:col-span-6 bg-white/[0.02] border border-white/5 rounded-3xl p-8 flex items-center gap-6 group hover:bg-white/[0.04] transition-colors"
+          >
+            <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500/10 transition-colors">
+              <Globe className="w-7 h-7 text-gray-400 group-hover:text-emerald-400 transition-colors" />
+            </div>
+            <div>
+              <h4 className="text-white text-xl font-medium mb-2">Exploring Places</h4>
+              <p className="text-gray-500 font-light">Finding good food spots and new environments.</p>
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
+    </section>
   );
 }
