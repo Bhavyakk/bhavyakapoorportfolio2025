@@ -55,7 +55,7 @@ export function Hero() {
           >
             <span className="hidden sm:inline-block w-12 h-[1px] bg-gray-600"></span>
             <AlternatingText
-              texts={["Product Designer", "Visual Artist", "Brand Strategist"]}
+              texts={["Product Designer", "UI/UX Specialist", "Creative Developer"]}
               className="text-lg sm:text-xl md:text-2xl font-light text-gray-300"
               delay={2000}
               switchInterval={3000}

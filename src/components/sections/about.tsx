@@ -38,13 +38,13 @@ export function About() {
               <h3 className="font-serif text-3xl text-white mb-6">Hello, I'm Bhavya</h3>
               <div className="space-y-6 text-gray-400 text-lg md:text-xl font-light leading-relaxed">
                 <p>
-                  I design things that make sense and look damn good doing it. Product design, visual design, branding, marketing — I work across it all.
+                  I'm a Product Designer currently building DUUET, a skincare app with over 2,000 active users.
                 </p>
                 <p>
-                  I've shaped digital products in healthcare, edtech, AI apps, community, and events, bringing the same level of obsession to every single one. Whether it's a complex flow or a brand identity, I ensure everything is intentional and built to last.
+                  I specialize in translating complex user needs into intuitive, high-converting interfaces. Whether I'm designing a consumer app from the ground up or prototyping an educational tool that earns a NASA Global Nominee ranking, my focus is always on clarity, empathy, and measurable impact.
                 </p>
                 <p>
-                  Good design solves. <span className="text-teal-400 font-medium">Great design sticks.</span> That's the standard I work to.
+                  I don't just push pixels; I talk to users, map the architecture, and design systems that scale.
                 </p>
               </div>
             </div>
