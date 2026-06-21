@@ -1,46 +1,48 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { GraduationCap, Trophy, Users, ExternalLink, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import nasaSpaceAppsCertificate from "../../assets/nasa-space-apps-certificate-final.jpg";
 
 export function Education() {
   const [selectedCertificate, setSelectedCertificate] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const headerY = useTransform(scrollYProgress, [0, 1], [0, 400]);
 
   const timelineItems = [
     {
       id: 1,
       type: "education",
       date: "2021 — 2025",
-      title: "B.E. in Computer Science",
+      title: "Computer Science",
       organization: "Chandigarh University",
       description: "Explored design and tech side by side — from building interfaces to leading student initiatives. Focused on the intersection of human-computer interaction and scalable engineering.",
-      icon: <GraduationCap className="w-5 h-5" />,
-      color: "text-teal-400",
-      bgGlow: "bg-teal-500/20"
+      icon: <GraduationCap className="w-8 h-8" />,
     },
     {
       id: 2,
       type: "achievement",
       date: "2023",
-      title: "Global Nominee - Top 10%",
-      organization: "NASA Space Apps Challenge",
+      title: "Global Nominee",
+      organization: "NASA Space Apps",
       description: "Achieved top 10% global ranking among 100+ regional teams in NASA's premier hackathon challenge.",
-      icon: <Trophy className="w-5 h-5" />,
-      color: "text-emerald-400",
-      bgGlow: "bg-emerald-500/20",
+      icon: <Trophy className="w-8 h-8" />,
       certificateImage: nasaSpaceAppsCertificate
     },
     {
       id: 3,
       type: "leadership",
       date: "2023 — 2024",
-      title: "Founding Member & Branding Executive",
-      organization: "CAC, Chandigarh University",
-      description: "Led branding initiatives as a founding member of the official club 'CAC'. Orchestrated visual identity and marketing strategies for large-scale university events.",
-      icon: <Users className="w-5 h-5" />,
-      color: "text-teal-200",
-      bgGlow: "bg-teal-200/20",
+      title: "Founding Member",
+      organization: "CAC Club",
+      description: "Led branding initiatives as a founding member. Orchestrated visual identity and marketing strategies for large-scale university events.",
+      icon: <Users className="w-8 h-8" />,
       certificateImage: "/cac-certificate.jpg"
     }
   ];
@@ -72,87 +74,69 @@ export function Education() {
   }, [isModalOpen]);
 
   return (
-    <section id="education" className="py-32  relative overflow-hidden">
-      <div className="container mx-auto px-6 max-w-5xl relative z-10">
-        
-        {/* Header */}
-        <div className="mb-24 flex justify-between items-end border-b border-white/10 pb-8">
-          <motion.h2 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="font-serif text-5xl md:text-7xl text-white"
-          >
-            Journey.
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="hidden md:block text-gray-500 uppercase tracking-widest text-sm font-medium"
-          >
-            Education & Milestones
-          </motion.p>
-        </div>
+    <section id="education" ref={containerRef} className="py-40 relative bg-[#030505] overflow-hidden">
+      
+      {/* Massive Parallax Background Header */}
+      <motion.div 
+        style={{ y: headerY }}
+        className="absolute top-0 left-0 w-full pointer-events-none z-0 flex justify-center opacity-10"
+      >
+        <h2 className="font-serif text-[20vw] leading-[0.8] tracking-tighter text-[#f3f6f5] whitespace-nowrap">
+          JOURNEY
+        </h2>
+      </motion.div>
 
-        {/* Minimalist Timeline */}
-        <div className="relative">
-          {/* Vertical Line */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-teal-500/0 via-teal-500/20 to-teal-500/0 hidden md:block" />
-          <div className="absolute left-6 top-0 bottom-0 w-[1px] bg-gradient-to-b from-teal-500/0 via-teal-500/20 to-teal-500/0 md:hidden" />
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        <div className="space-y-40 md:space-y-64">
+          {timelineItems.map((item, index) => (
+            <motion.div 
+              key={item.id}
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20%" }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col md:flex-row gap-12 md:gap-24 items-start"
+            >
+              {/* Year & Icon */}
+              <div className="w-full md:w-1/3 flex flex-col gap-6 items-start">
+                <div className="text-teal-500 mix-blend-difference">
+                  {item.icon}
+                </div>
+                <h3 className="font-serif text-5xl md:text-7xl text-white/20 tracking-tighter mix-blend-difference">
+                  {item.date}
+                </h3>
+              </div>
 
-          <div className="space-y-12 md:space-y-24">
-            {timelineItems.map((item, index) => {
-              const isEven = index % 2 === 0;
-              return (
-                <motion.div 
-                  key={item.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6 }}
-                  className="relative flex flex-col md:flex-row items-start md:items-center w-full"
-                >
-                  
-                  {/* Left Content (or top on mobile) */}
-                  <div className={`w-full md:w-1/2 flex pl-16 md:pl-0 ${isEven ? 'md:justify-end md:pr-16' : 'md:order-2 md:pl-16'}`}>
-                    <div 
-                      className={`group relative bg-white/[0.02] border border-white/5 rounded-3xl p-8 hover:bg-white/[0.04] transition-all duration-500 w-full ${item.certificateImage ? 'cursor-pointer' : ''}`}
-                      onClick={() => handleCertificateClick(item)}
-                    >
-                      {/* Ambient Glow on hover */}
-                      <div className={`absolute inset-0 rounded-3xl ${item.bgGlow} opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-xl`} />
-                      
-                      <div className="relative z-10">
-                        <span className="text-sm font-medium text-gray-500 mb-2 block">{item.date}</span>
-                        <h3 className="text-2xl font-serif text-white mb-1 group-hover:text-teal-300 transition-colors">{item.title}</h3>
-                        <p className={`font-medium mb-4 ${item.color}`}>{item.organization}</p>
-                        <p className="text-gray-400 font-light leading-relaxed">{item.description}</p>
-                        
-                        {item.certificateImage && (
-                          <div className="mt-6 flex items-center gap-2 text-sm text-gray-500 uppercase tracking-widest font-medium group-hover:text-white transition-colors">
-                            <span>View Certificate</span>
-                            <ExternalLink className="w-4 h-4" />
-                          </div>
-                        )}
-                      </div>
+              {/* Content */}
+              <div className="w-full md:w-2/3 flex flex-col gap-8">
+                <h4 className="font-serif text-6xl md:text-8xl text-white leading-[0.9] tracking-tighter mix-blend-difference">
+                  {item.title}
+                </h4>
+                <div className="flex flex-col gap-4">
+                  <span className="text-xl md:text-2xl font-light tracking-widest uppercase text-teal-400">
+                    {item.organization}
+                  </span>
+                  <p className="text-2xl md:text-3xl text-[#f3f6f5]/60 font-light leading-relaxed max-w-2xl hover-target">
+                    {item.description}
+                  </p>
+                </div>
+
+                {item.certificateImage && (
+                  <motion.button
+                    onClick={() => handleCertificateClick(item)}
+                    whileHover={{ scale: 1.05, x: 10 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                    className="flex items-center gap-4 text-white uppercase tracking-[0.2em] font-medium mt-8 hover-target group w-fit"
+                  >
+                    <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-teal-400 group-hover:bg-teal-400/10 transition-colors duration-500">
+                      <ExternalLink className="w-5 h-5 text-white group-hover:text-teal-400 transition-colors" />
                     </div>
-                  </div>
-
-                  {/* Center Node */}
-                  <div className="absolute left-6 md:left-1/2 transform -translate-x-1/2 flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-full bg-[#030505] border-2 border-white/10 flex items-center justify-center z-10 relative">
-                      <div className={`absolute inset-0 rounded-full ${item.bgGlow} blur-md`} />
-                      <div className={`relative z-10 ${item.color}`}>
-                        {item.icon}
-                      </div>
-                    </div>
-                  </div>
-
-                </motion.div>
-              );
-            })}
-          </div>
+                    <span className="group-hover:text-teal-400 transition-colors duration-500">View Certificate</span>
+                  </motion.button>
+                )}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
 
@@ -160,39 +144,38 @@ export function Education() {
       <AnimatePresence>
         {isModalOpen && selectedCertificate && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
+            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
+            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            transition={{ duration: 0.5 }}
           >
-            <div className="absolute inset-0 bg-black/90 backdrop-blur-xl" onClick={closeModal} />
+            <div className="absolute inset-0 bg-black/80" onClick={closeModal} />
             
             <motion.div
-              className="relative w-full max-w-4xl bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden shadow-2xl z-10 flex flex-col max-h-[90vh]"
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-5xl bg-transparent flex flex-col max-h-[90vh]"
+              initial={{ opacity: 0, scale: 0.9, y: 40 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              exit={{ opacity: 0, scale: 0.9, y: 40 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="flex justify-between items-center p-6 border-b border-white/5">
+              <div className="flex justify-between items-center p-6 border-b border-white/10 mb-8 bg-[#030505]/50 backdrop-blur-md rounded-t-2xl">
                 <div>
-                  <h3 className="font-serif text-2xl text-white">{selectedCertificate.title}</h3>
-                  <p className="text-gray-500 text-sm">{selectedCertificate.organization}</p>
+                  <h3 className="font-serif text-3xl md:text-5xl text-white">{selectedCertificate.title}</h3>
                 </div>
                 <button
                   onClick={closeModal}
-                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors text-gray-400 hover:text-white"
+                  className="w-12 h-12 rounded-full bg-white/5 hover:bg-white/20 flex items-center justify-center transition-colors text-white backdrop-blur-md hover-target"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-6 h-6" />
                 </button>
               </div>
               
-              <div className="p-6 md:p-8 overflow-y-auto ">
+              <div className="overflow-y-auto px-6 pb-6">
                 <img
                   src={selectedCertificate.certificateImage}
                   alt={`${selectedCertificate.title} Certificate`}
-                  className="w-full h-auto rounded-lg shadow-2xl border border-white/5"
+                  className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-1000"
                 />
               </div>
             </motion.div>

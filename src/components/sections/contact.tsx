@@ -1,95 +1,75 @@
-import { motion } from "framer-motion";
-import { AnimatedText } from "@/components/ui/animated-text";
-import { Mail, Linkedin } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { ArrowRight } from "lucide-react";
 
 export function Contact() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end end"]
+  });
+
+  const scaleText = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+  const yText = useTransform(scrollYProgress, [0, 1], [100, 0]);
 
   return (
-    <>
+    <section id="contact" ref={containerRef} className="relative min-h-screen flex flex-col justify-end bg-[#030505] overflow-hidden pt-32 pb-16">
+      
+      {/* Decorative ambient light */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-teal-500/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <section id="contact" className="py-20 bg-black particles-dark relative overflow-hidden">
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="mb-8">
-            <AnimatedText
-              text="Let's Connect"
-              className="text-5xl md:text-6xl font-black bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
-              delay={0}
-            />
-            <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-emerald-400 mx-auto mt-6 rounded-full"></div>
-          </div>
-          <motion.p
-            className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >Have a project in mind? Let's create something amazing together.</motion.p>
-          
-          {/* Contact Blocks */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-2xl mx-auto">
-            {/* Email Block */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, y: -5 }}
-            >
-              <a href="mailto:bhavya.kapoorr@gmail.com" className="block">
-                <div className="relative bg-white/5 backdrop-blur-lg p-8 border border-white/20 hover:border-teal-400/60 transition-all duration-500 group text-center rounded-xl hover:bg-white/10 cursor-pointer overflow-hidden shadow-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-br from-teal-600/10 via-transparent to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="relative z-10">
-                    <motion.div 
-                      className="flex justify-center mb-4"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
-                      <div className="p-3 rounded-full bg-teal-500/20 group-hover:bg-teal-500/30 transition-all duration-300">
-                        <Mail className="w-8 h-8 text-teal-400 group-hover:text-teal-300 transition-colors duration-300" />
-                      </div>
-                    </motion.div>
-                    <h4 className="font-bold text-white mb-2 text-lg">Email</h4>
-                    <span className="text-gray-300 hover:text-teal-400 transition-colors duration-300 font-medium">
-                      bhavya.kapoorr@gmail.com
-                    </span>
-                  </div>
-                </div>
-              </a>
-            </motion.div>
+      <div className="container mx-auto px-6 relative z-10 flex flex-col justify-between h-full flex-1">
+        
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end w-full mb-24 md:mb-0">
+          <div className="max-w-2xl">
+            <h3 className="text-3xl md:text-5xl font-light text-[#f3f6f5] mb-8 leading-snug">
+              Have a project in mind?<br/>
+              <span className="text-gray-500">Let's create something amazing together.</span>
+            </h3>
             
-            {/* LinkedIn Block */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="relative bg-white/5 backdrop-blur-lg p-8 border border-white/20 hover:border-blue-400/60 transition-all duration-500 group text-center rounded-xl hover:bg-white/10 hover:scale-105 cursor-pointer overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-3 rounded-full bg-blue-500/20 group-hover:bg-blue-500/30 transition-all duration-300">
-                      <Linkedin className="w-8 h-8 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
-                    </div>
-                  </div>
-                  <h4 className="font-bold text-white mb-2 text-lg">LinkedIn</h4>
-                  <a 
-                    href="https://www.linkedin.com/in/bhavyakapoorr/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-300 hover:text-blue-400 transition-colors duration-300 font-medium"
-                  >
-                    Connect with me
-                  </a>
+            <div className="flex flex-col sm:flex-row gap-6">
+              <a 
+                href="mailto:bhavya.kapoorr@gmail.com"
+                className="group flex items-center gap-4 text-xl font-medium text-white hover:text-teal-400 transition-colors duration-300 hover-target"
+              >
+                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-teal-400 transition-colors duration-300">
+                  <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
                 </div>
-              </div>
-            </motion.div>
+                <span>bhavya.kapoorr@gmail.com</span>
+              </a>
+
+              <a 
+                href="https://www.linkedin.com/in/bhavyakapoorr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 text-xl font-medium text-white hover:text-blue-400 transition-colors duration-300 hover-target"
+              >
+                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-blue-400 transition-colors duration-300">
+                  <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
+                </div>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+          
+          <div className="mt-16 md:mt-0 text-left md:text-right">
+            <p className="text-gray-500 uppercase tracking-[0.2em] text-sm font-medium mb-4">Location</p>
+            <p className="text-xl text-white font-light">Chandigarh, India<br/>Available Worldwide</p>
           </div>
         </div>
+
+        {/* Massive Scaling Footer Text */}
+        <div className="w-full overflow-hidden mt-auto flex justify-center items-end border-b border-white/10 pb-8">
+          <motion.h1 
+            style={{ scale: scaleText, y: yText }}
+            className="font-serif text-[18vw] leading-[0.7] tracking-tighter text-[#f3f6f5] uppercase mix-blend-difference hover-target cursor-default transform-origin-bottom"
+          >
+            LET'S TALK
+          </motion.h1>
+        </div>
+
       </div>
-      </section>
-    </>
+    </section>
   );
 }
