@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import profileImage from "../../assets/bhavya-profile-new.jpg";
 
 export function About() {
@@ -31,82 +31,91 @@ export function About() {
           </motion.h2>
         </div>
 
-        {/* Scroll Revealed Bio & Image */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-32">
+        {/* Bento Box Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-32">
           
-          <div className="lg:col-span-7 space-y-12">
-            <motion.h3 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="font-serif text-5xl md:text-7xl text-white tracking-tight mix-blend-difference"
-            >
-              Hi, I'm Bhavya.
-            </motion.h3>
-            
-            <motion.div 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ staggerChildren: 0.2 }}
-              className="space-y-8 text-xl md:text-3xl font-light text-[#f3f6f5]/60 leading-snug"
-            >
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-white mix-blend-difference hover-target"
-              >
-                I'm a UI/UX and visual designer focused on making digital experiences look better, function seamlessly, and communicate clearly.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="hover-target"
-              >
-                I love taking rough concepts and shaping them into products people actually connect with. Lately, I've been diving deep into user behavior, exploring how intentional design makes everyday experiences easier.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="hover-target"
-              >
-                Outside the screen, you'll find me traveling, taking photos, or watching cricket. Always open to meeting new people and collaborating on interesting projects.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-teal-400 font-medium pt-4 hover-target"
-              >
-                P.S. I'm currently taking on freelance projects. Let's connect!
-              </motion.p>
-            </motion.div>
-          </div>
-
+          {/* Main Bio Card */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="md:col-span-3 bg-white/[0.03] border border-white/10 rounded-[2rem] p-8 md:p-14 hover-target group hover:bg-white/[0.05] transition-colors duration-500"
           >
-            <div className="aspect-[3/4] overflow-hidden rounded-sm hover-target group">
-              <div className="absolute inset-0 bg-teal-500/20 group-hover:bg-transparent transition-colors duration-700 z-10 mix-blend-multiply" />
-              <img 
-                src={profileImage} 
-                alt="Bhavya Kapoor" 
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-1000"
-              />
-              <div className="absolute bottom-8 left-8 z-20 flex items-center gap-3 text-white font-serif text-2xl mix-blend-difference">
-                <MapPin className="w-6 h-6 text-teal-400" />
-                <span>India</span>
-              </div>
+            <h3 className="font-serif text-5xl md:text-7xl text-white tracking-tight mb-8 mix-blend-difference">
+              Hi, I'm Bhavya.
+            </h3>
+            <div className="space-y-6 text-lg md:text-2xl font-light text-[#f3f6f5]/70 leading-relaxed">
+              <p className="text-white mix-blend-difference">
+                I'm a UI/UX and visual designer focused on making digital experiences look better, function seamlessly, and communicate clearly.
+              </p>
+              <p>
+                I love taking rough concepts and shaping them into products people actually connect with. Lately, I've been diving deep into user behavior, exploring how intentional design makes everyday experiences easier.
+              </p>
+              <p>
+                Outside the screen, you'll find me traveling, taking photos, or watching cricket. Always open to meeting new people and collaborating on interesting projects.
+              </p>
             </div>
+          </motion.div>
+
+          {/* Profile Image Card */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="md:col-span-1 bg-white/[0.03] border border-white/10 rounded-[2rem] overflow-hidden relative aspect-square md:aspect-auto hover-target group"
+          >
+            <img 
+              src={profileImage} 
+              alt="Bhavya Kapoor" 
+              loading="lazy"
+              className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          </motion.div>
+
+          {/* Experience Card */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="md:col-span-1 bg-gradient-to-br from-teal-500/10 to-emerald-500/5 border border-teal-500/20 rounded-[2rem] p-8 flex flex-col justify-center items-center hover-target group hover:border-teal-500/40 transition-colors duration-500"
+          >
+             <div className="text-7xl font-serif text-teal-400 mb-2 group-hover:scale-110 transition-transform duration-500">3+</div>
+             <div className="text-xs md:text-sm font-mono text-white/60 uppercase tracking-widest text-center">Years Experience</div>
+          </motion.div>
+
+          {/* Location Card */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="md:col-span-1 bg-white/[0.03] border border-white/10 rounded-[2rem] p-8 flex flex-col justify-center items-center hover-target group hover:bg-white/[0.05] transition-colors duration-500"
+          >
+             <MapPin className="w-12 h-12 text-white/40 mb-4 group-hover:text-white transition-colors duration-500" />
+             <div className="text-2xl font-serif text-white mb-1">Based in India</div>
+             <div className="text-xs font-mono text-white/40 uppercase tracking-wider">Working Globally</div>
+          </motion.div>
+
+          {/* Freelance Status Card */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="md:col-span-2 bg-white/[0.03] border border-white/10 rounded-[2rem] p-8 flex items-center gap-6 hover-target group hover:bg-white/[0.05] transition-colors duration-500"
+          >
+             <div className="relative flex h-8 w-8 flex-shrink-0">
+               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-50"></span>
+               <span className="relative inline-flex rounded-full h-8 w-8 bg-emerald-500 border-2 border-[#030505]"></span>
+             </div>
+             <div>
+               <div className="text-3xl font-serif text-white mb-2 mix-blend-difference">Available for Freelance</div>
+               <div className="text-sm font-mono text-white/50 uppercase tracking-wider">Let's build something together</div>
+             </div>
           </motion.div>
 
         </div>
@@ -118,11 +127,11 @@ export function About() {
           
           <div className="flex gap-16 whitespace-nowrap animate-scroll items-center hover-target cursor-ew-resize">
             {[...skills, ...skills, ...skills, ...skills].map((skill, i) => (
-              <div key={i} className="flex items-center gap-8">
-                <span className="text-4xl md:text-7xl font-serif text-transparent bg-clip-text bg-gradient-to-r from-teal-100/20 to-white/10 hover:from-teal-400 hover:to-emerald-400 transition-colors duration-500 uppercase tracking-tighter mix-blend-difference">
+              <div key={i} className="flex items-center gap-8 group">
+                <span className="text-4xl md:text-7xl font-serif text-transparent bg-clip-text bg-gradient-to-r from-white/20 to-white/10 group-hover:from-teal-400 group-hover:to-emerald-400 transition-colors duration-500 uppercase tracking-tighter mix-blend-difference">
                   {skill}
                 </span>
-                <span className="text-teal-500/50 text-3xl font-serif italic">*</span>
+                <span className="text-teal-500/50 text-3xl font-serif italic group-hover:rotate-180 transition-transform duration-700">*</span>
               </div>
             ))}
           </div>
