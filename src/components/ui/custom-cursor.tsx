@@ -51,33 +51,16 @@ export function CustomCursor() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-4 h-4 bg-teal-400 rounded-full pointer-events-none z-[9999] mix-blend-exclusion hidden md:block"
+        className="fixed top-0 left-0 w-4 h-4 bg-white rounded-full pointer-events-none z-[9999] mix-blend-difference hidden md:block"
         animate={{
           x: mousePosition.x - 8,
           y: mousePosition.y - 8,
-          scale: isHovering ? 4 : 1,
-          opacity: 1,
+          scale: isHovering ? 5 : 1,
         }}
         transition={{
-          type: "spring",
-          stiffness: 500,
-          damping: 28,
-          mass: 0.5,
-        }}
-      />
-      <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border border-teal-500/50 rounded-full pointer-events-none z-[9998] hidden md:block"
-        animate={{
-          x: mousePosition.x - 16,
-          y: mousePosition.y - 16,
-          scale: isHovering ? 1.5 : 1,
-          opacity: isHovering ? 0 : 1,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 250,
-          damping: 20,
-          mass: 0.8,
+          type: "tween",
+          ease: "backOut",
+          duration: 0.15,
         }}
       />
     </>
