@@ -39,7 +39,7 @@ export function About() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="font-serif text-4xl md:text-6xl text-white tracking-tight mix-blend-difference mb-8"
+              className="font-serif text-6xl md:text-8xl text-white tracking-tight mix-blend-difference mb-8"
             >
               Hi, I'm Bhavya.
             </motion.h3>
@@ -49,7 +49,7 @@ export function About() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ staggerChildren: 0.2 }}
-              className="space-y-6 text-xl md:text-2xl font-light text-[#f3f6f5]/60 leading-relaxed"
+              className="space-y-6 text-2xl md:text-4xl font-light text-[#f3f6f5]/60 leading-relaxed"
             >
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
