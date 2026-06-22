@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, MapPin } from "lucide-react";
-import bg__1_ from "../../assets/bg-1.png";
+import profileImage from "../../assets/bhavya-profile-new.jpg";
 
 export function About() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -96,7 +96,7 @@ export function About() {
             <div className="aspect-[3/4] overflow-hidden rounded-sm hover-target group">
               <div className="absolute inset-0 bg-teal-500/20 group-hover:bg-transparent transition-colors duration-700 z-10 mix-blend-multiply" />
               <img 
-                src={bg__1_} 
+                src={profileImage} 
                 alt="Bhavya Kapoor" 
                 loading="lazy"
                 decoding="async"
