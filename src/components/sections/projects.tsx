@@ -157,7 +157,7 @@ export function Projects() {
         <div className="sticky top-0 h-screen flex items-center overflow-hidden">
           
           <motion.div style={{ x: xBgText }} className="absolute top-10 left-6 md:left-10 z-0 pointer-events-auto">
-            <h2 className="font-serif text-[20vw] md:text-[12vw] leading-[0.8] tracking-tighter text-[#f3f6f5] opacity-5 hover-target">
+            <h2 className="font-serif text-[20vw] md:text-[12vw] leading-[0.8] tracking-tighter text-[#f3f6f5] opacity-5 hover:opacity-40 transition-opacity duration-700 hover-target cursor-default">
               SELECTED<br/>WORKS
             </h2>
           </motion.div>
