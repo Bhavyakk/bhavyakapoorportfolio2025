@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
 import { useState, useRef } from "react";
 import { ProjectModal } from "../ui/project-modal";
 import { Users, Search, Palette, TestTube, Smartphone, Target, ArrowUpRight } from "lucide-react";
@@ -25,9 +25,9 @@ export function Projects() {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
-  const xBgText = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
-  const imageParallaxX = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const xPercent = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const x = useMotionTemplate`calc(${xPercent}% + 100vw)`;
+  const xBgText = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
 
   const handleProjectClick = (project: any) => {
     setSelectedProject(project);
@@ -162,7 +162,7 @@ export function Projects() {
             </h2>
           </motion.div>
 
-          <motion.div style={{ x }} className="flex gap-8 md:gap-16 px-[10vw] items-center relative z-10">
+          <motion.div style={{ x }} className="flex gap-8 md:gap-16 px-[10vw] items-center relative z-10 w-max">
             {projects.map((project, index) => (
               <div 
                 key={project.title}
@@ -171,13 +171,12 @@ export function Projects() {
               >
                 <div className="w-full h-full relative overflow-hidden">
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-700 z-10" />
-                  <motion.img
-                    style={{ x: imageParallaxX }}
+                  <img
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
                     decoding="async"
-                    className="w-[120%] max-w-none h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 ease-[0.16,1,0.3,1]"
+                    className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-[0.16,1,0.3,1]"
                   />
                   
                   {/* Cinematic Content Overlay */}
