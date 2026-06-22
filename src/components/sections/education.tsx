@@ -79,9 +79,9 @@ export function Education() {
       {/* Massive Parallax Background Header */}
       <motion.div 
         style={{ y: headerY }}
-        className="absolute top-0 left-0 w-full pointer-events-none z-0 flex justify-center opacity-10"
+        className="absolute top-0 left-0 w-full pointer-events-auto z-0 flex justify-center opacity-10"
       >
-        <h2 className="font-serif text-[20vw] leading-[0.8] tracking-tighter text-[#f3f6f5] whitespace-nowrap">
+        <h2 className="font-serif text-[20vw] leading-[0.8] tracking-tighter text-[#f3f6f5] whitespace-nowrap hover-target">
           JOURNEY
         </h2>
       </motion.div>

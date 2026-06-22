@@ -25,7 +25,7 @@ export function About() {
         <div className="mb-20 md:mb-32">
           <motion.h2 
             style={{ y }}
-            className="font-serif text-[15vw] md:text-[10vw] leading-[0.9] text-white/5 uppercase tracking-tighter"
+            className="font-serif text-[15vw] md:text-[10vw] leading-[0.9] text-white/5 uppercase tracking-tighter hover-target"
           >
             Behind the<br/><span className="text-white">Pixels</span>
           </motion.h2>

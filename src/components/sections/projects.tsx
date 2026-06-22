@@ -156,8 +156,8 @@ export function Projects() {
       <section ref={targetRef} id="projects" className="relative h-[400vh] bg-[#030505]">
         <div className="sticky top-0 h-screen flex items-center overflow-hidden">
           
-          <motion.div style={{ x: xBgText }} className="absolute top-10 left-6 md:left-10 z-0 pointer-events-none">
-            <h2 className="font-serif text-[20vw] md:text-[12vw] leading-[0.8] tracking-tighter text-[#f3f6f5] opacity-5">
+          <motion.div style={{ x: xBgText }} className="absolute top-10 left-6 md:left-10 z-0 pointer-events-auto">
+            <h2 className="font-serif text-[20vw] md:text-[12vw] leading-[0.8] tracking-tighter text-[#f3f6f5] opacity-5 hover-target">
               SELECTED<br/>WORKS
             </h2>
           </motion.div>
