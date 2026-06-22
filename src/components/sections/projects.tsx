@@ -135,6 +135,19 @@ export function Projects() {
       liveUrl: "https://www.figma.com/design/qIu69BaUttOHk960WYNEzN/ANTRIKSH",
       metrics: [],
       process: []
+    },
+    {
+      title: "University Homepage",
+      subtitle: "Higher Education Web Design",
+      challenge: "University websites often feel outdated and don't reflect modern student expectations.",
+      solution: "Redesigned university homepage with contemporary patterns, clear navigation, and student-focused content organization.",
+      description: "Modern university website redesign based on user research and contemporary web design patterns.",
+      image: eventServicesImage,
+      tags: ["Web Design", "University", "Research"],
+      color: "purple" as const,
+      liveUrl: "https://www.figma.com/design/QbwiNs7P9GiXxka8XX8Kwn/CUCC?node-id=2212-75&t=TkICOh1ua556ejYR-1",
+      metrics: [],
+      process: []
     }
   ];
 
