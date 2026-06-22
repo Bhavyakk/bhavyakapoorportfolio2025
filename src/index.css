@@ -453,12 +453,6 @@
 /* Hide summary arrow */
 summary::-webkit-details-marker { display: none !important; }
 summary::marker { content: "" !important; }
-/* Hide native scrollbars for a premium feel */
-::-webkit-scrollbar {
-  display: none;
-}
-* {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+
+
 
