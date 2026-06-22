@@ -49,7 +49,7 @@ export function About() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ staggerChildren: 0.2 }}
-              className="space-y-6 text-lg md:text-2xl font-light text-[#f3f6f5]/60 leading-relaxed"
+              className="space-y-6 text-xl md:text-2xl font-light text-[#f3f6f5]/60 leading-relaxed"
             >
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
