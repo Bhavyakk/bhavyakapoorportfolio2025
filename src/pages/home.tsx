@@ -8,14 +8,12 @@ import { Education } from "@/components/sections/education";
 import { Projects } from "@/components/sections/projects";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
-import { HoverInfo } from "@/components/ui/hover-info";
 
 export default function Home() {
   return (
     <div className="relative">
       <ScrollIndicator />
       <ParticleBackground />
-      <HoverInfo />
       <Navigation />
       <Hero />
       <About />
