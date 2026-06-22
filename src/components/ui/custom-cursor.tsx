@@ -7,6 +7,11 @@ export function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Only run cursor logic on devices with a fine pointer (e.g., mouse)
+    if (!window.matchMedia("(pointer: fine)").matches) {
+      return;
+    }
+
     // Hide default cursor
     document.body.style.cursor = 'none';
 
