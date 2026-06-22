@@ -1,3 +1,5 @@
+import { ReactLenis } from "@studio-freight/react-lenis";
+import { NoiseOverlay } from "@/components/ui/noise-overlay";
 import { ParticleBackground } from "@/components/ui/particle-background";
 import { ScrollIndicator } from "@/components/ui/scroll-indicator";
 import { Navigation } from "@/components/ui/navigation";
@@ -11,17 +13,20 @@ import { Footer } from "@/components/sections/footer";
 
 export default function Home() {
   return (
-    <div className="relative">
-      <ScrollIndicator />
-      <ParticleBackground />
-      <Navigation />
-      <Hero />
-      <About />
-      <Education />
-      {/* <Experience /> */}
-      <Projects />
-      <Contact />
-      <Footer />
-    </div>
+    <ReactLenis root options={{ lerp: 0.05, duration: 1.5, smoothWheel: true }}>
+      <div className="relative">
+        <NoiseOverlay />
+        <ScrollIndicator />
+        <ParticleBackground />
+        <Navigation />
+        <Hero />
+        <About />
+        <Education />
+        {/* <Experience /> */}
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
+    </ReactLenis>
   );
 }
