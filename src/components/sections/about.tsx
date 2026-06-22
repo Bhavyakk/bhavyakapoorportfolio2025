@@ -65,7 +65,7 @@ export function About() {
                 viewport={{ once: true }}
                 className="hover-target"
               >
-                I love taking rough concepts and shaping them into products people actually connect with. Lately, I've been diving deep into user behavior—exploring how intentional design makes everyday experiences easier.
+                I love taking rough concepts and shaping them into products people actually connect with. Lately, I've been diving deep into user behavior, exploring how intentional design makes everyday experiences easier.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -81,7 +81,7 @@ export function About() {
                 viewport={{ once: true }}
                 className="text-teal-400 font-medium pt-4 hover-target"
               >
-                P.S. — I'm currently taking on freelance projects. Let's connect!
+                P.S. I'm currently taking on freelance projects. Let's connect!
               </motion.p>
             </motion.div>
           </div>
