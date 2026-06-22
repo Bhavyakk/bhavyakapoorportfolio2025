@@ -10,6 +10,7 @@ import partyAppImage from "../../assets/Frame 2_1751840429819.png";
 import grahanAppImage from "../../assets/Frame 5 (3)_1751840850825.png";
 import antrikshImage from "../../assets/OC 01_1751842419330.png";
 import eventServicesImage from "../../assets/OC 07_1751857969313.png";
+import socialMediaCreativesImage from "../../assets/OC 08 (4)_1751922322277.png";
 
 // Grahan project images  
 import grahanResearchImage from "../../assets/lunar-quiz-research.png";
@@ -148,6 +149,22 @@ export function Projects() {
       color: "purple" as const,
       liveUrl: "https://www.figma.com/design/QbwiNs7P9GiXxka8XX8Kwn/CUCC?node-id=2212-75&t=TkICOh1ua556ejYR-1",
       metrics: [],
+      process: []
+    },
+    {
+      title: "Social Media Campaigns",
+      subtitle: "Brand Campaign Design",
+      challenge: "Creating consistent visual identity across multiple social media campaigns and platforms.",
+      solution: "Developed cohesive design system for social media campaigns with consistent branding and engaging visuals.",
+      description: "Creative designs for various social media campaigns with consistent brand identity and engaging visuals.",
+      image: socialMediaCreativesImage,
+      tags: ["Social Media", "Branding", "Campaigns"],
+      color: "blue" as const,
+      liveUrl: "https://www.figma.com/design/yh1oXLg13y9W0hyRhDHMwo/Social-Media-Creatives?node-id=1-4&t=buwF0Q9XZq1OWero-1",
+      metrics: [
+        { label: "Campaign Types", value: "Multiple" },
+        { label: "Brand Consistency", value: "High" }
+      ],
       process: []
     }
   ];
