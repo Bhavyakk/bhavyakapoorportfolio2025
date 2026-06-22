@@ -23,6 +23,7 @@ export function Projects() {
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
+    offset: ["start start", "end end"]
   });
 
   const xPercent = useTransform(scrollYProgress, [0, 1], [0, -100]);
