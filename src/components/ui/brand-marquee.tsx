@@ -92,13 +92,6 @@ export function BrandMarquee() {
         }
       `}</style>
 
-      {/* Label: WORKED WITH */}
-      <div className="max-w-6xl mx-auto px-6 mb-4">
-        <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-white/40 font-medium">
-          WORKED WITH
-        </span>
-      </div>
-
       {/* Marquee Strip: Full-bleed edge to edge */}
       <div className="marquee-container w-full overflow-hidden py-1">
         <div className="marquee-track flex items-center gap-8 sm:gap-16 pr-8 sm:pr-16">
