@@ -21,7 +21,7 @@ export function BrandMarquee() {
   const doubleLogos = [...BRAND_LOGOS, ...BRAND_LOGOS];
 
   return (
-    <div className="w-full mt-12 md:mt-16 pt-4 pb-2 relative z-10 select-none">
+    <div className="w-full mt-8 md:mt-10 pt-2 pb-2 relative z-10 select-none">
       <style>{`
         @keyframes marquee-scroll {
           0% {

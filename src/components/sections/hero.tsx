@@ -27,13 +27,13 @@ export function Hero() {
     <main
       id="home"
       ref={containerRef}
-      className="min-h-screen flex flex-col justify-between relative overflow-hidden bg-[#030505] pt-24 pb-8 sm:pb-12"
+      className="min-h-screen flex flex-col justify-between relative overflow-hidden bg-[#030505] pt-36 sm:pt-44 md:pt-48 pb-8 sm:pb-12"
     >
       {/* Ambient glowing orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-900/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-emerald-900/10 rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10 w-full flex-1 flex flex-col justify-center my-auto">
+      <div className="container mx-auto px-6 relative z-10 w-full flex-1 flex flex-col justify-center pt-4 md:pt-8 my-auto">
         <motion.div style={{ opacity }} className="max-w-6xl mx-auto w-full">
           
           {/* Typography-led Hero */}
