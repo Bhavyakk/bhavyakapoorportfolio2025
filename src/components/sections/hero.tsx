@@ -27,7 +27,7 @@ export function Hero() {
     <main
       id="home"
       ref={containerRef}
-      className="min-h-screen flex flex-col justify-between relative overflow-hidden bg-[#030505] pt-24 sm:pt-28 md:pt-32 pb-4 sm:pb-6"
+      className="min-h-screen flex flex-col justify-between relative overflow-hidden bg-[#030505] pt-20 sm:pt-24 md:pt-24 pb-4 sm:pb-6"
     >
       {/* Ambient glowing orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-900/20 rounded-full blur-[120px] pointer-events-none" />
@@ -45,7 +45,7 @@ export function Hero() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="overflow-hidden w-full"
             >
-              <h1 className="font-serif text-[22vw] md:text-[13vw] lg:text-[12.5vw] leading-[0.82] tracking-[-0.04em] text-[#f3f6f5] uppercase hover-target mix-blend-difference">
+              <h1 className="font-serif text-[24vw] md:text-[15vw] leading-[0.8] tracking-[-0.04em] text-[#f3f6f5] uppercase hover-target mix-blend-difference">
                 BHAVYA
               </h1>
             </motion.div>
@@ -57,7 +57,7 @@ export function Hero() {
               transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="overflow-hidden w-full flex justify-end"
             >
-              <h1 className="font-serif text-[22vw] md:text-[13vw] lg:text-[12.5vw] leading-[0.82] tracking-[-0.04em] text-transparent bg-clip-text bg-gradient-to-r from-teal-200 via-teal-400 to-emerald-500 uppercase hover-target">
+              <h1 className="font-serif text-[24vw] md:text-[15vw] leading-[0.8] tracking-[-0.04em] text-transparent bg-clip-text bg-gradient-to-r from-teal-200 via-teal-400 to-emerald-500 uppercase hover-target">
                 KAPOOR
               </h1>
             </motion.div>
