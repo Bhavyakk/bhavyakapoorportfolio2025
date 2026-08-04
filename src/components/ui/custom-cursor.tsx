@@ -54,20 +54,29 @@ export function CustomCursor() {
   if (!isVisible) return null;
 
   return (
-    <>
-      <motion.div
-        className="fixed top-0 left-0 w-4 h-4 bg-white rounded-full pointer-events-none z-[9999] mix-blend-difference hidden md:block"
-        animate={{
-          x: mousePosition.x - 8,
-          y: mousePosition.y - 8,
-          scale: isHovering ? 5 : 1,
-        }}
-        transition={{
-          type: "tween",
-          ease: "backOut",
-          duration: 0.15,
-        }}
-      />
-    </>
+    <motion.div
+      className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference hidden md:block"
+      style={{ originX: 0, originY: 0 }}
+      animate={{
+        x: mousePosition.x - 3,
+        y: mousePosition.y - 3,
+        scale: isHovering ? 1.6 : 1,
+      }}
+      transition={{
+        type: "tween",
+        ease: "backOut",
+        duration: 0.15,
+      }}
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="white"
+        className="w-6 h-6 text-white"
+      >
+        <path d="M3 3L10.07 19.97L13.58 13.58L19.97 10.07L3 3Z" />
+      </svg>
+    </motion.div>
   );
 }

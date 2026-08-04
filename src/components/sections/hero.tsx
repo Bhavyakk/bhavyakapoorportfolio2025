@@ -3,7 +3,6 @@ import { AlternatingText } from "@/components/ui/alternating-text";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { ArrowDownRight } from "lucide-react";
 import { useRef } from "react";
-import { BrandMarquee } from "@/components/ui/brand-marquee";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -101,9 +100,6 @@ export function Hero() {
           
         </motion.div>
       </div>
-
-      {/* Brand Marquee Strip */}
-      <BrandMarquee />
     </main>
   );
 }

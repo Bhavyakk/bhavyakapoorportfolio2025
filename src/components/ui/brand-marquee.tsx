@@ -2,18 +2,18 @@ import React from "react";
 
 export interface BrandItem {
   name: string;
-  logo: string | null;
+  logo: string;
+  className?: string;
 }
 
+// Custom height per logo to balance visual scale since the source PNGs have different padding/canvas sizes.
 export const BRAND_LOGOS: BrandItem[] = [
-  { name: "Nike", logo: null },
-  { name: "Spotify", logo: null },
-  { name: "Adobe", logo: null },
-  { name: "Airbnb", logo: null },
-  { name: "Figma", logo: null },
-  { name: "Notion", logo: null },
-  { name: "Slack", logo: null },
-  { name: "Stripe", logo: null },
+  { name: "Meera", logo: "/logos/Logo.png", className: "h-5 sm:h-6" },
+  { name: "twinmynd", logo: "/logos/2a07fe7d-a950-4770-b098-9fd307270aa5.png", className: "h-12 sm:h-14" },
+  { name: "Duuet", logo: "/logos/c0902b36-8ca3-4886-a17d-18ec8320fdd2.png", className: "h-14 sm:h-16" },
+  { name: "Zaprev", logo: "/logos/d10f52c0-5e2e-47fa-a9eb-a3d23f23b067.png", className: "h-14 sm:h-16" },
+  { name: "OwlAI", logo: "/logos/ae4f3963-0585-47da-bea0-899a639a5e93.png", className: "h-14 sm:h-16" },
+  { name: "RSK India", logo: "/logos/rsk..png", className: "h-11 sm:h-14" },
 ];
 
 export function BrandMarquee() {
@@ -90,27 +90,37 @@ export function BrandMarquee() {
             mask-image: none !important;
           }
         }
+
+        .brand-logo-img {
+          /* mix-blend-mode: screen makes white backgrounds transparent on dark bg */
+          mix-blend-mode: screen;
+          opacity: 0.75;
+          transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .brand-logo-img:hover {
+          opacity: 1;
+        }
       `}</style>
+
+      {/* "Worked With" label */}
+      <p className="text-center text-[10px] sm:text-xs uppercase tracking-[0.25em] text-white/30 mb-3">
+        Brands I've worked with
+      </p>
 
       {/* Marquee Strip: Full-bleed edge to edge */}
       <div className="marquee-container w-full overflow-hidden py-1">
-        <div className="marquee-track flex items-center gap-8 sm:gap-16 pr-8 sm:pr-16">
+        <div className="marquee-track flex items-center gap-10 sm:gap-16 pr-10 sm:pr-16">
           {doubleLogos.map((item, index) => (
             <div
               key={`${item.name}-${index}`}
-              className="flex-shrink-0 flex items-center justify-center transition-all duration-300"
+              className="flex-shrink-0 flex items-center justify-center h-16 sm:h-20"
             >
-              {item.logo ? (
-                <img
-                  src={item.logo}
-                  alt={item.name}
-                  className="h-8 sm:h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
-                />
-              ) : (
-                <div className="h-8 sm:h-10 px-5 sm:px-6 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center text-xs sm:text-sm font-medium tracking-wide text-white/60 hover:text-white hover:border-teal-400/40 hover:bg-teal-500/10 hover:shadow-[0_0_15px_rgba(78,205,196,0.15)] transition-all duration-300 cursor-pointer whitespace-nowrap">
-                  {item.name}
-                </div>
-              )}
+              <img
+                src={item.logo}
+                alt={item.name}
+                className={`brand-logo-img w-auto object-contain cursor-pointer ${item.className || "h-8 sm:h-10"}`}
+              />
             </div>
           ))}
         </div>

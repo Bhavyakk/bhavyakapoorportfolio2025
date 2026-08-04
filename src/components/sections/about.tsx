@@ -49,7 +49,7 @@ export function About() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ staggerChildren: 0.2 }}
-              className="space-y-6 text-2xl md:text-4xl font-light text-[#f3f6f5]/60 leading-relaxed"
+              className="space-y-6 text-lg md:text-3xl font-light text-[#f3f6f5]/60 leading-relaxed"
             >
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ export function About() {
                 viewport={{ once: true }}
                 className="text-white mix-blend-difference hover-target"
               >
-                I'm a UI/UX and visual designer focused on making digital experiences look better, function seamlessly, and communicate clearly.
+                I work as a Freelance visual and UI/UX designer, with a strong interest in social media and branding projects. Over the past 2 years, I’ve worked across B2C web and mobile products, branding, and marketing creatives.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -65,7 +65,7 @@ export function About() {
                 viewport={{ once: true }}
                 className="hover-target"
               >
-                I love taking rough concepts and shaping them into products people actually connect with.
+                I enjoy the process of taking a rough idea and shaping it into something people can actually use and connect with.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -73,15 +73,7 @@ export function About() {
                 viewport={{ once: true }}
                 className="hover-target"
               >
-                Outside the screen, you'll find me traveling, taking photos, or watching cricket. Always open to meeting new people and collaborating on interesting projects.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-teal-400 font-medium pt-4 hover-target"
-              >
-                P.S. I'm currently taking on freelance projects. Let's connect!
+                Outside of work, you’ll find me traveling, taking landscape photos, or watching cricket. Always up for meeting new people, learning something new, or working on an interesting project.
               </motion.p>
             </motion.div>
           </div>
