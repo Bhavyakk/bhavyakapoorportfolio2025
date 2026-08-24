@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Copy, Check, ArrowUp, Volume2, VolumeX, Sparkles } from "lucide-react";
-import { soundEngine } from "@/utils/sound-engine";
+import { Copy, Check, ArrowUp } from "lucide-react";
 
 // 1. Live IST Clock Widget
 export function LiveClock() {
@@ -35,25 +34,11 @@ export function LiveClock() {
   );
 }
 
-// 2. Pulsing Availability Status Badge
-export function AvailabilityBadge() {
-  return (
-    <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-[11px] sm:text-xs text-emerald-300 font-medium backdrop-blur-md hover-target select-none shadow-[0_0_15px_rgba(16,185,129,0.15)]">
-      <span className="relative flex h-2 w-2">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-      </span>
-      <span className="tracking-wide">Available for Select Projects</span>
-    </div>
-  );
-}
-
-// 3. One-Click Copy Email Chip
+// 2. Clean One-Click Copy Email Chip
 export function CopyEmailChip({ email = "bhavya.kapoorr@gmail.com" }: { email?: string }) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    soundEngine.playClick(400);
     navigator.clipboard.writeText(email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -62,12 +47,11 @@ export function CopyEmailChip({ email = "bhavya.kapoorr@gmail.com" }: { email?: 
   return (
     <div className="relative inline-block">
       <motion.button
-        whileHover={{ scale: 1.04 }}
-        whileTap={{ scale: 0.96 }}
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
         onClick={handleCopy}
-        className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/15 hover:border-teal-400/40 text-xs text-white/80 transition-all duration-300 group hover-target cursor-pointer"
+        className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/15 hover:border-teal-400/40 text-xs text-white/80 transition-all duration-300 group hover-target cursor-pointer"
       >
-        <Sparkles className="w-3.5 h-3.5 text-teal-400 group-hover:rotate-12 transition-transform" />
         <span className="font-mono text-white/90">{email}</span>
         {copied ? (
           <Check className="w-3.5 h-3.5 text-emerald-400" />
@@ -84,7 +68,7 @@ export function CopyEmailChip({ email = "bhavya.kapoorr@gmail.com" }: { email?: 
             exit={{ opacity: 0, y: -4, scale: 0.9 }}
             className="absolute left-1/2 -translate-x-1/2 -top-9 px-3 py-1 rounded-md bg-teal-500 text-black text-[11px] font-bold tracking-wider uppercase shadow-lg pointer-events-none z-30 whitespace-nowrap"
           >
-            Copied to Clipboard! ✨
+            Copied! ✨
           </motion.div>
         )}
       </AnimatePresence>
@@ -92,42 +76,7 @@ export function CopyEmailChip({ email = "bhavya.kapoorr@gmail.com" }: { email?: 
   );
 }
 
-// 4. Interactive Audio Equalizer Button
-export function AudioEqualizer() {
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const toggleAudio = () => {
-    const nextState = soundEngine.toggleAmbient();
-    setIsPlaying(nextState);
-  };
-
-  return (
-    <button
-      onClick={toggleAudio}
-      title={isPlaying ? "Mute Ambient Sound" : "Enable Ambient Sound"}
-      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white/70 text-xs transition-all hover-target cursor-pointer"
-    >
-      {isPlaying ? (
-        <>
-          <div className="flex items-end gap-[2px] h-3.5 w-4">
-            <span className="w-[2px] bg-teal-400 rounded-full animate-[bounce_1s_infinite_100ms] h-full" />
-            <span className="w-[2px] bg-teal-400 rounded-full animate-[bounce_1s_infinite_300ms] h-2/3" />
-            <span className="w-[2px] bg-teal-400 rounded-full animate-[bounce_1s_infinite_200ms] h-4/5" />
-            <span className="w-[2px] bg-teal-400 rounded-full animate-[bounce_1s_infinite_400ms] h-1/2" />
-          </div>
-          <span className="text-[10px] font-mono uppercase text-teal-300">AUDIO ON</span>
-        </>
-      ) : (
-        <>
-          <VolumeX className="w-3.5 h-3.5 text-white/40" />
-          <span className="text-[10px] font-mono uppercase text-white/40">AUDIO OFF</span>
-        </>
-      )}
-    </button>
-  );
-}
-
-// 5. Scroll Progress Ring & Back-to-Top Button
+// 3. Scroll Progress Ring & Back-to-Top Button
 export function ScrollProgressRing() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -147,7 +96,6 @@ export function ScrollProgressRing() {
   }, []);
 
   const scrollToTop = () => {
-    soundEngine.playClick(320);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -196,16 +144,5 @@ export function ScrollProgressRing() {
         </motion.div>
       )}
     </AnimatePresence>
-  );
-}
-
-// 6. Monospace Section Badge Indicator
-export function SectionBadge({ number, title }: { number: string; title: string }) {
-  return (
-    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-[11px] font-mono text-teal-400 uppercase tracking-widest mb-3 select-none">
-      <span className="text-white/40">{number}</span>
-      <span className="text-white/20">//</span>
-      <span>{title}</span>
-    </div>
   );
 }

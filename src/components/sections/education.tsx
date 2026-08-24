@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { GraduationCap, Trophy, Users, ExternalLink, X } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
-import { SectionBadge } from "@/components/ui/mini-widgets";
 import nasaSpaceAppsCertificate from "../../assets/nasa-space-apps-certificate-final.jpg";
 
 export function Education() {

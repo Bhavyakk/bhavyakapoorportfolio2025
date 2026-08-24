@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
 import { useState, useRef } from "react";
 import { ProjectModal } from "../ui/project-modal";
-import { SectionBadge } from "../ui/mini-widgets";
 import { Users, Search, Palette, TestTube, Smartphone, Target, ArrowUpRight } from "lucide-react";
 
 import duuetCareImage from "../../assets/OC 05 (3)_1751839575431.png";

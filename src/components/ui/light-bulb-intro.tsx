@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { soundEngine } from "@/utils/sound-engine";
 
 interface LightBulbIntroProps {
   onComplete?: () => void;
@@ -14,7 +13,6 @@ export function LightBulbIntro({ onComplete }: LightBulbIntroProps) {
     // 3-Stage Cinematic Light Flicker Intro
     const t1 = setTimeout(() => {
       setStage("flicker1");
-      soundEngine.playSpark(180);
     }, 450);
 
     const t2 = setTimeout(() => {
@@ -23,13 +21,11 @@ export function LightBulbIntro({ onComplete }: LightBulbIntroProps) {
 
     const t3 = setTimeout(() => {
       setStage("flicker2");
-      soundEngine.playSpark(260);
     }, 900);
 
     const t4 = setTimeout(() => {
       setStage("on");
       setIsLightOn(true);
-      soundEngine.playSpark(340);
     }, 1250);
 
     const t5 = setTimeout(() => {
@@ -39,11 +35,7 @@ export function LightBulbIntro({ onComplete }: LightBulbIntroProps) {
 
     // Listen for custom light toggle events from Nav
     const handleToggle = () => {
-      setIsLightOn((prev) => {
-        const next = !prev;
-        soundEngine.playSpark(next ? 320 : 140);
-        return next;
-      });
+      setIsLightOn((prev) => !prev);
     };
 
     window.addEventListener("toggle-room-light", handleToggle);

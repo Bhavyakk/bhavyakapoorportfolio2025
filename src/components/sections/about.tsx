@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, MapPin } from "lucide-react";
-import { SectionBadge } from "@/components/ui/mini-widgets";
 import profileImage from "../../assets/bhavya-profile-new.jpg";
 
 export function About() {

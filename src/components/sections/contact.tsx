@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Zap } from "lucide-react";
-import { SectionBadge, CopyEmailChip } from "@/components/ui/mini-widgets";
+import { CopyEmailChip } from "@/components/ui/mini-widgets";
 
 export function Contact() {
   const containerRef = useRef<HTMLDivElement>(null);

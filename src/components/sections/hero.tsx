@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { AlternatingText } from "@/components/ui/alternating-text";
 import { MagneticButton } from "@/components/ui/magnetic-button";
-import { AvailabilityBadge, LiveClock, CopyEmailChip } from "@/components/ui/mini-widgets";
+import { LiveClock, CopyEmailChip } from "@/components/ui/mini-widgets";
 import { ArrowDownRight } from "lucide-react";
 import { useRef } from "react";
 
@@ -41,9 +41,8 @@ export function Hero() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-wrap items-center justify-between gap-3 mb-6 sm:mb-8"
+            className="flex items-center justify-end mb-6 sm:mb-8"
           >
-            <AvailabilityBadge />
             <LiveClock />
           </motion.div>
 
