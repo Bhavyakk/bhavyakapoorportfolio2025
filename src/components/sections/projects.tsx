@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
 import { useState, useRef } from "react";
 import { ProjectModal } from "../ui/project-modal";
+import { SectionBadge } from "../ui/mini-widgets";
 import { Users, Search, Palette, TestTube, Smartphone, Target, ArrowUpRight } from "lucide-react";
 
 import duuetCareImage from "../../assets/OC 05 (3)_1751839575431.png";
@@ -173,6 +174,7 @@ export function Projects() {
     <div id="projects">
       {/* --- MOBILE OPTIMIZED LAYOUT (Native Vertical Scroll) --- */}
       <section className="md:hidden bg-[#030505] py-20 px-6 relative overflow-hidden">
+        <SectionBadge number="03" title="FEATURED WORKS" />
         <h2 className="font-serif text-[18vw] leading-[0.8] tracking-tighter text-[#f3f6f5] mb-12">
           SELECTED<br/>WORKS
         </h2>
@@ -216,7 +218,8 @@ export function Projects() {
       <section ref={targetRef} className="hidden md:block relative h-[400vh] bg-[#030505]">
         <div className="sticky top-0 h-screen flex items-center overflow-hidden">
           
-          <motion.div style={{ x: xBgText }} className="absolute top-10 left-10 z-0 pointer-events-auto">
+          <motion.div style={{ x: xBgText }} className="absolute top-10 left-10 z-0 pointer-events-auto flex flex-col gap-2">
+            <SectionBadge number="03" title="FEATURED WORKS" />
             <h2 className="font-serif text-[12vw] leading-[0.8] tracking-tighter text-[#f3f6f5] opacity-5 hover:opacity-40 transition-opacity duration-700 hover-target cursor-default">
               SELECTED<br/>WORKS
             </h2>

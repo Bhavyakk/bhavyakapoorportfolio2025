@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, MapPin } from "lucide-react";
+import { SectionBadge } from "@/components/ui/mini-widgets";
 import profileImage from "../../assets/bhavya-profile-new.jpg";
 
 export function About() {
@@ -23,6 +24,7 @@ export function About() {
         
         {/* Section Header */}
         <div className="mb-20 md:mb-32">
+          <SectionBadge number="01" title="ABOUT ME" />
           <motion.h2 
             style={{ y }}
             className="font-serif text-[15vw] md:text-[10vw] leading-[0.9] text-white/5 uppercase tracking-tighter hover-target hover:text-white/40 transition-colors duration-700"

@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
+import { SectionBadge, CopyEmailChip } from "@/components/ui/mini-widgets";
 
 export function Contact() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,10 +24,17 @@ export function Contact() {
         
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end w-full mb-24 md:mb-0">
           <div className="max-w-2xl">
-            <h3 className="text-3xl md:text-5xl font-light text-[#f3f6f5] mb-8 leading-snug">
+            <SectionBadge number="04" title="LET'S CONNECT" />
+            <h3 className="text-3xl md:text-5xl font-light text-[#f3f6f5] mb-6 leading-snug">
               Have a project in mind?<br/>
               <span className="text-gray-500">Let's create something amazing together.</span>
             </h3>
+
+            {/* Quick Response Time Micro Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-950/40 border border-teal-500/30 text-xs font-mono text-teal-300 mb-8">
+              <Zap className="w-3.5 h-3.5 fill-teal-400" />
+              <span>Typical Response Time: &lt; 2 Hours</span>
+            </div>
             
             <div className="flex flex-col sm:flex-row gap-6">
               <a 

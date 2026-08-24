@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { GraduationCap, Trophy, Users, ExternalLink, X } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import { SectionBadge } from "@/components/ui/mini-widgets";
 import nasaSpaceAppsCertificate from "../../assets/nasa-space-apps-certificate-final.jpg";
 
 export function Education() {
@@ -87,6 +88,7 @@ export function Education() {
       </motion.div>
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        <SectionBadge number="02" title="EDUCATION & MILESTONES" />
         <div className="space-y-32 md:space-y-64 mt-16 md:mt-0">
           {timelineItems.map((item, index) => (
             <motion.div 

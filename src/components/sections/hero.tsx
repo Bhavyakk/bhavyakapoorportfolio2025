@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { AlternatingText } from "@/components/ui/alternating-text";
 import { MagneticButton } from "@/components/ui/magnetic-button";
+import { AvailabilityBadge, LiveClock, CopyEmailChip } from "@/components/ui/mini-widgets";
 import { ArrowDownRight } from "lucide-react";
 import { useRef } from "react";
 
@@ -34,7 +35,18 @@ export function Hero() {
 
       <div className="container mx-auto px-6 relative z-10 w-full flex-1 flex flex-col justify-center my-auto">
         <motion.div style={{ opacity }} className="max-w-6xl mx-auto w-full">
-          
+
+          {/* Top Micro Header Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex flex-wrap items-center justify-between gap-3 mb-6 sm:mb-8"
+          >
+            <AvailabilityBadge />
+            <LiveClock />
+          </motion.div>
+
           {/* Typography-led Hero */}
           <div className="mb-4 sm:mb-6 flex flex-col items-start w-full">
             <motion.div
@@ -48,7 +60,7 @@ export function Hero() {
                 BHAVYA
               </h1>
             </motion.div>
-            
+
             <motion.div
               style={{ y: yText2 }}
               initial={{ opacity: 0, y: 50 }}
@@ -61,11 +73,11 @@ export function Hero() {
               </h1>
             </motion.div>
           </div>
-          
+
           <div className="flex flex-col md:flex-row justify-between items-end w-full mt-6 md:mt-8 gap-6 md:gap-8">
-            {/* Animated Subheading */}
+            {/* Animated Subheading & Copy Email Pill */}
             <motion.div
-              className="text-base sm:text-lg md:text-xl text-gray-400 font-light tracking-wide min-h-[2rem] flex items-center gap-3 w-full md:w-auto"
+              className="text-base sm:text-lg md:text-xl text-gray-400 font-light tracking-wide min-h-[2rem] flex flex-wrap items-center gap-4 w-full md:w-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.8 }}
@@ -76,7 +88,8 @@ export function Hero() {
                 delay={2000}
                 switchInterval={3000}
               />
-              <span className="hidden sm:inline-block w-12 h-[1px] bg-white/20"></span>
+              <span className="hidden sm:inline-block w-8 h-[1px] bg-white/20"></span>
+              <CopyEmailChip />
             </motion.div>
 
             {/* Minimalist CTA */}
@@ -97,7 +110,7 @@ export function Hero() {
               </MagneticButton>
             </motion.div>
           </div>
-          
+
         </motion.div>
       </div>
     </main>

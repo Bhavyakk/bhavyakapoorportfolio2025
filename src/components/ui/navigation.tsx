@@ -3,6 +3,7 @@ import { Menu, X, Lightbulb } from "lucide-react";
 import { useState } from "react";
 import { MagneticButton } from "./magnetic-button";
 import { toggleRoomLight } from "./light-bulb-intro";
+import { AudioEqualizer } from "./mini-widgets";
 
 export function Navigation() {
   const { scrollY } = useScroll();
@@ -47,7 +48,7 @@ export function Navigation() {
         transition={{ duration: 0.35, ease: "easeInOut" }}
         className="fixed top-6 left-0 right-0 z-50 hidden md:flex justify-center mix-blend-difference"
       >
-        <div className="bg-transparent px-8 py-4 flex items-center space-x-10">
+        <div className="bg-transparent px-8 py-4 flex items-center space-x-8">
           {navLinks.map((section) => (
             <MagneticButton
               key={section}
@@ -58,6 +59,9 @@ export function Navigation() {
               {section}
             </MagneticButton>
           ))}
+
+          {/* Micro Audio Equalizer */}
+          <AudioEqualizer />
 
           {/* Minimalist Ambient Light Toggle Switch */}
           <MagneticButton
