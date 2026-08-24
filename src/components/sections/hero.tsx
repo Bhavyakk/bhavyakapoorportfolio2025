@@ -82,7 +82,7 @@ export function Hero() {
               transition={{ duration: 1, delay: 0.8 }}
             >
               <AlternatingText
-                texts={["UI/UX Designer", "Visual Designer", "Creative Specialist"]}
+                texts={["UI/UX Designer", "AI Video Specialist", "Visual Designer", "Creative Specialist"]}
                 className="text-base sm:text-lg md:text-xl font-light text-[#f3f6f5]"
                 delay={2000}
                 switchInterval={3000}

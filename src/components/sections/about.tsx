@@ -11,7 +11,7 @@ export function About() {
   });
 
   const skills = [
-    "UI/UX Design", "Figma", "Design Research", 
+    "UI/UX Design", "AI Video Specialist", "Figma", "Design Research", 
     "Branding", "Interaction Design", "Prototyping"
   ];
 
@@ -57,7 +57,7 @@ export function About() {
                 viewport={{ once: true }}
                 className="text-white mix-blend-difference hover-target"
               >
-                I work as a Freelance visual and UI/UX designer, with a strong interest in social media and branding projects. Over the past 2 years, I’ve worked across B2C web and mobile products, branding, and marketing creatives.
+                I work as a Freelance Visual, UI/UX Designer & AI Video Specialist, with a strong interest in social media, AI content creation, and branding projects. Over the past 2 years, I’ve worked across B2C web and mobile products, AI video production, branding, and marketing creatives.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
