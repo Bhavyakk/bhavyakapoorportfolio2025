@@ -28,7 +28,8 @@ export function Hero() {
       ref={containerRef}
       className="min-h-screen flex flex-col justify-between relative overflow-hidden bg-[#030505] pt-20 sm:pt-24 md:pt-24 pb-4 sm:pb-6"
     >
-      {/* Ambient glowing orbs */}
+      {/* Ambient glowing orbs & Light cone beam */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 md:left-auto md:right-24 w-[600px] h-[700px] bg-gradient-to-b from-amber-200/15 via-teal-500/10 to-transparent clip-light-cone blur-xl pointer-events-none z-0" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-900/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-emerald-900/10 rounded-full blur-[150px] pointer-events-none" />
 

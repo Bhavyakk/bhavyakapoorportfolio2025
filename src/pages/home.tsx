@@ -1,3 +1,4 @@
+import { LightBulbIntro } from "@/components/ui/light-bulb-intro";
 import { ParticleBackground } from "@/components/ui/particle-background";
 import { ScrollIndicator } from "@/components/ui/scroll-indicator";
 import { Navigation } from "@/components/ui/navigation";
@@ -13,6 +14,7 @@ import { Footer } from "@/components/sections/footer";
 export default function Home() {
   return (
     <div className="relative">
+      <LightBulbIntro />
       <ScrollIndicator />
       <ParticleBackground />
       <Navigation />
