@@ -8,6 +8,7 @@ export interface BrandItem {
 
 // Custom height per logo to balance visual scale since the source PNGs have different padding/canvas sizes.
 export const BRAND_LOGOS: BrandItem[] = [
+  { name: "ShipGlobal.in", logo: "/logos/shipglobal.png", className: "h-7 sm:h-9" },
   { name: "Meera", logo: "/logos/Logo.png", className: "h-5 sm:h-6" },
   { name: "twinmynd", logo: "/logos/2a07fe7d-a950-4770-b098-9fd307270aa5.png", className: "h-12 sm:h-14" },
   { name: "Duuet", logo: "/logos/c0902b36-8ca3-4886-a17d-18ec8320fdd2.png", className: "h-14 sm:h-16" },
