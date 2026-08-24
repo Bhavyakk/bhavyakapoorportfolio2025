@@ -6,13 +6,15 @@ interface MagneticButtonProps {
   className?: string;
   onClick?: () => void;
   strength?: number;
+  title?: string;
 }
 
 export function MagneticButton({ 
   children, 
   className = "", 
   onClick, 
-  strength = 0.3 
+  strength = 0.3,
+  title
 }: MagneticButtonProps) {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -38,6 +40,7 @@ export function MagneticButton({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
+      title={title}
       animate={{
         x: position.x,
         y: position.y,
