@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { soundEngine } from "@/utils/sound-engine";
 
 interface LightBulbIntroProps {
   onComplete?: () => void;
@@ -9,35 +10,11 @@ export function LightBulbIntro({ onComplete }: LightBulbIntroProps) {
   const [stage, setStage] = useState<"dark" | "flicker1" | "off1" | "flicker2" | "on" | "done">("dark");
   const [isLightOn, setIsLightOn] = useState(false);
 
-  // Web Audio API synthesized switch sound effect
-  const playFlickerSound = (pitch = 180) => {
-    try {
-      const audioCtx = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-
-      osc.type = "sine";
-      osc.frequency.setValueAtTime(pitch, audioCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.08);
-
-      gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
-
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-
-      osc.start();
-      osc.stop(audioCtx.currentTime + 0.08);
-    } catch {
-      // AudioContext fallback
-    }
-  };
-
   useEffect(() => {
     // 3-Stage Cinematic Light Flicker Intro
     const t1 = setTimeout(() => {
       setStage("flicker1");
-      playFlickerSound(200);
+      soundEngine.playSpark(180);
     }, 450);
 
     const t2 = setTimeout(() => {
@@ -46,13 +23,13 @@ export function LightBulbIntro({ onComplete }: LightBulbIntroProps) {
 
     const t3 = setTimeout(() => {
       setStage("flicker2");
-      playFlickerSound(280);
+      soundEngine.playSpark(260);
     }, 900);
 
     const t4 = setTimeout(() => {
       setStage("on");
       setIsLightOn(true);
-      playFlickerSound(360);
+      soundEngine.playSpark(340);
     }, 1250);
 
     const t5 = setTimeout(() => {
@@ -62,8 +39,11 @@ export function LightBulbIntro({ onComplete }: LightBulbIntroProps) {
 
     // Listen for custom light toggle events from Nav
     const handleToggle = () => {
-      setIsLightOn((prev) => !prev);
-      playFlickerSound(300);
+      setIsLightOn((prev) => {
+        const next = !prev;
+        soundEngine.playSpark(next ? 320 : 140);
+        return next;
+      });
     };
 
     window.addEventListener("toggle-room-light", handleToggle);

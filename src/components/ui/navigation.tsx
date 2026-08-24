@@ -4,6 +4,7 @@ import { useState } from "react";
 import { MagneticButton } from "./magnetic-button";
 import { toggleRoomLight } from "./light-bulb-intro";
 import { AudioEqualizer } from "./mini-widgets";
+import { soundEngine } from "@/utils/sound-engine";
 
 export function Navigation() {
   const { scrollY } = useScroll();
@@ -22,6 +23,7 @@ export function Navigation() {
   });
 
   const scrollToSection = (sectionId: string) => {
+    soundEngine.playClick(240);
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -30,6 +32,7 @@ export function Navigation() {
   };
 
   const handleLightClick = () => {
+    soundEngine.playClick(320);
     setIsLit(!isLit);
     toggleRoomLight();
   };

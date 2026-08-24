@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Copy, Check, ArrowUp, Volume2, VolumeX, Sparkles } from "lucide-react";
+import { soundEngine } from "@/utils/sound-engine";
 
 // 1. Live IST Clock Widget
 export function LiveClock() {
@@ -52,6 +53,7 @@ export function CopyEmailChip({ email = "bhavya.kapoorr@gmail.com" }: { email?: 
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
+    soundEngine.playClick(400);
     navigator.clipboard.writeText(email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -92,10 +94,11 @@ export function CopyEmailChip({ email = "bhavya.kapoorr@gmail.com" }: { email?: 
 
 // 4. Interactive Audio Equalizer Button
 export function AudioEqualizer() {
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const toggleAudio = () => {
-    setIsPlaying(!isPlaying);
+    const nextState = soundEngine.toggleAmbient();
+    setIsPlaying(nextState);
   };
 
   return (
@@ -117,7 +120,7 @@ export function AudioEqualizer() {
       ) : (
         <>
           <VolumeX className="w-3.5 h-3.5 text-white/40" />
-          <span className="text-[10px] font-mono uppercase text-white/40">MUTED</span>
+          <span className="text-[10px] font-mono uppercase text-white/40">AUDIO OFF</span>
         </>
       )}
     </button>
@@ -144,6 +147,7 @@ export function ScrollProgressRing() {
   }, []);
 
   const scrollToTop = () => {
+    soundEngine.playClick(320);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
