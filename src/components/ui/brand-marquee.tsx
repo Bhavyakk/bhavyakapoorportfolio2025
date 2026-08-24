@@ -8,13 +8,13 @@ export interface BrandItem {
 
 // Custom height per logo to balance visual scale since the source PNGs have different padding/canvas sizes.
 export const BRAND_LOGOS: BrandItem[] = [
-  { name: "ShipGlobal.in", logo: "/logos/shipglobal.png", className: "h-7 sm:h-9" },
-  { name: "Meera", logo: "/logos/Logo.png", className: "h-5 sm:h-6" },
-  { name: "twinmynd", logo: "/logos/2a07fe7d-a950-4770-b098-9fd307270aa5.png", className: "h-12 sm:h-14" },
-  { name: "Duuet", logo: "/logos/c0902b36-8ca3-4886-a17d-18ec8320fdd2.png", className: "h-14 sm:h-16" },
-  { name: "Zaprev", logo: "/logos/d10f52c0-5e2e-47fa-a9eb-a3d23f23b067.png", className: "h-14 sm:h-16" },
-  { name: "OwlAI", logo: "/logos/ae4f3963-0585-47da-bea0-899a639a5e93.png", className: "h-14 sm:h-16" },
-  { name: "RSK India", logo: "/logos/rsk..png", className: "h-11 sm:h-14" },
+  { name: "ShipGlobal.in", logo: "/logos/shipglobal.png", className: "h-9 sm:h-12" },
+  { name: "Meera", logo: "/logos/Logo.png", className: "h-7 sm:h-9" },
+  { name: "twinmynd", logo: "/logos/2a07fe7d-a950-4770-b098-9fd307270aa5.png", className: "h-16 sm:h-20" },
+  { name: "Duuet", logo: "/logos/c0902b36-8ca3-4886-a17d-18ec8320fdd2.png", className: "h-18 sm:h-24" },
+  { name: "Zaprev", logo: "/logos/d10f52c0-5e2e-47fa-a9eb-a3d23f23b067.png", className: "h-18 sm:h-24" },
+  { name: "OwlAI", logo: "/logos/ae4f3963-0585-47da-bea0-899a639a5e93.png", className: "h-18 sm:h-24" },
+  { name: "RSK India", logo: "/logos/rsk..png", className: "h-14 sm:h-18" },
 ];
 
 export function BrandMarquee() {
@@ -115,12 +115,12 @@ export function BrandMarquee() {
           {doubleLogos.map((item, index) => (
             <div
               key={`${item.name}-${index}`}
-              className="flex-shrink-0 flex items-center justify-center h-16 sm:h-20"
+              className="flex-shrink-0 flex items-center justify-center h-20 sm:h-28"
             >
               <img
                 src={item.logo}
                 alt={item.name}
-                className={`brand-logo-img w-auto object-contain cursor-pointer ${item.className || "h-8 sm:h-10"}`}
+                className={`brand-logo-img w-auto object-contain cursor-pointer ${item.className || "h-10 sm:h-12"}`}
               />
             </div>
           ))}
