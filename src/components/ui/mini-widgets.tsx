@@ -48,7 +48,7 @@ export function AvailabilityBadge() {
 }
 
 // 3. One-Click Copy Email Chip
-export function CopyEmailChip({ email = "bhavyakapoor.design@gmail.com" }: { email?: string }) {
+export function CopyEmailChip({ email = "bhavya.kapoorr@gmail.com" }: { email?: string }) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {

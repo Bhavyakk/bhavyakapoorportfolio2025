@@ -88,7 +88,6 @@ export function Education() {
       </motion.div>
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <SectionBadge number="02" title="EDUCATION & MILESTONES" />
         <div className="space-y-32 md:space-y-64 mt-16 md:mt-0">
           {timelineItems.map((item, index) => (
             <motion.div 

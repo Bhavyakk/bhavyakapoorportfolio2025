@@ -24,7 +24,6 @@ export function Contact() {
         
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end w-full mb-24 md:mb-0">
           <div className="max-w-2xl">
-            <SectionBadge number="04" title="LET'S CONNECT" />
             <h3 className="text-3xl md:text-5xl font-light text-[#f3f6f5] mb-6 leading-snug">
               Have a project in mind?<br/>
               <span className="text-gray-500">Let's create something amazing together.</span>
