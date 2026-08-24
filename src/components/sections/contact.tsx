@@ -32,7 +32,7 @@ export function Contact() {
             {/* Quick Response Time Micro Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-950/40 border border-teal-500/30 text-xs font-mono text-teal-300 mb-8">
               <Zap className="w-3.5 h-3.5 fill-teal-400" />
-              <span>Typical Response Time: &lt; 2 Hours</span>
+              <span>Typical Response Time: &lt; 30 mins</span>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-6">
