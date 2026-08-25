@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { AlternatingText } from "@/components/ui/alternating-text";
 import { MagneticButton } from "@/components/ui/magnetic-button";
-import { LiveClock, CopyEmailChip } from "@/components/ui/mini-widgets";
+import { CopyEmailChip } from "@/components/ui/mini-widgets";
 import { ArrowDownRight } from "lucide-react";
 import { useRef } from "react";
 
@@ -35,16 +35,6 @@ export function Hero() {
 
       <div className="container mx-auto px-6 relative z-10 w-full flex-1 flex flex-col justify-center my-auto">
         <motion.div style={{ opacity }} className="max-w-6xl mx-auto w-full">
-
-          {/* Top Micro Header Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex items-center justify-end mb-6 sm:mb-8"
-          >
-            <LiveClock />
-          </motion.div>
 
           {/* Typography-led Hero */}
           <div className="mb-4 sm:mb-6 flex flex-col items-start w-full">
