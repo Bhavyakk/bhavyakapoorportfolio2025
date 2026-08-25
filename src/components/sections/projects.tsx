@@ -37,11 +37,6 @@ export function Projects() {
   // Image parallax inside cards (moves opposite to scroll direction)
   const imageX = useTransform(smoothProgress, [0, 1], ["0%", "15%"]);
 
-  // Calculate active project index for progress indicator
-  const activeIndex = useTransform(scrollYProgress, (v) => 
-    Math.min(Math.max(1, Math.ceil(v * projects.length)), projects.length)
-  );
-
   const handleProjectClick = (project: any) => {
     setSelectedProject(project);
     setIsModalOpen(true);
@@ -179,6 +174,11 @@ export function Projects() {
       process: []
     }
   ];
+
+  // Calculate active project index for progress indicator
+  const activeIndex = useTransform(scrollYProgress, (v) => 
+    Math.min(Math.max(1, Math.ceil(v * projects.length)), projects.length)
+  );
 
   return (
     <div id="projects">
