@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { GraduationCap, Trophy, Users, ExternalLink, X } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import nasaSpaceAppsCertificate from "../../assets/nasa-space-apps-certificate-final.jpg";
+import { ScrollSectionWrapper } from "@/components/ui/scroll-section-wrapper";
 
 export function Education() {
   const [selectedCertificate, setSelectedCertificate] = useState<any>(null);
@@ -74,20 +75,21 @@ export function Education() {
   }, [isModalOpen]);
 
   return (
-    <section id="education" ref={containerRef} className="py-24 md:py-40 relative bg-[#030505] overflow-hidden">
-      
-      {/* Massive Parallax Background Header */}
-      <motion.div 
-        style={{ y: headerY }}
-        className="absolute top-0 left-0 w-full pointer-events-auto z-0 flex justify-center opacity-10 hover:opacity-40 transition-opacity duration-700"
-      >
-        <h2 className="font-serif text-[20vw] leading-[0.8] tracking-tighter text-[#f3f6f5] whitespace-nowrap hover-target cursor-default">
-          JOURNEY
-        </h2>
-      </motion.div>
-
+    <ScrollSectionWrapper 
+      id="education" 
+      sectionNumber="03"
+      className="py-24 md:py-40 bg-[#030505]"
+      parallaxSpeed={[-50, 200]}
+    >
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div className="space-y-32 md:space-y-64 mt-16 md:mt-0">
+        
+        {/* Timeline drawing animation */}
+        <motion.div
+          style={{ scaleY: scrollYProgress, originY: 0 }}
+          className="absolute left-[30px] md:left-[33.33%] top-0 bottom-0 w-[2px] bg-gradient-to-b from-teal-500 via-teal-400/50 to-transparent hidden md:block"
+        />
+
+        <div className="space-y-32 md:space-y-64 mt-16 md:mt-0 relative">
           {timelineItems.map((item, index) => (
             <motion.div 
               key={item.id}
@@ -97,14 +99,24 @@ export function Education() {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col md:flex-row gap-12 md:gap-24 items-start"
             >
-              {/* Year & Icon */}
-              <div className="w-full md:w-1/3 flex flex-col gap-6 items-start">
-                <div className="text-teal-500 mix-blend-difference">
+              <div className="w-full md:w-1/3 flex flex-col gap-6 items-start relative z-10">
+                <motion.div 
+                  initial={{ boxShadow: "0 0 0px rgba(42, 157, 143, 0)" }}
+                  whileInView={{ boxShadow: ["0 0 0px rgba(42, 157, 143, 0)", "0 0 30px rgba(42, 157, 143, 0.8)", "0 0 0px rgba(42, 157, 143, 0)"] }}
+                  transition={{ duration: 1.5, ease: "easeInOut", times: [0, 0.5, 1], repeat: 1 }}
+                  viewport={{ once: true, margin: "-20%" }}
+                  className="text-teal-500 mix-blend-difference bg-[#030505] p-2 rounded-full"
+                >
                   {item.icon}
-                </div>
-                <h3 className="font-serif text-5xl md:text-7xl text-white/20 tracking-tighter mix-blend-difference">
+                </motion.div>
+                
+                {/* Floating Date Badge with Parallax lag */}
+                <motion.h3 
+                  style={{ y: useTransform(scrollYProgress, [0, 1], [0, index * 60 - 30]) }}
+                  className="font-serif text-5xl md:text-7xl text-white/20 tracking-tighter mix-blend-difference will-change-transform"
+                >
                   {item.date}
-                </h3>
+                </motion.h3>
               </div>
 
               {/* Content */}
@@ -184,6 +196,6 @@ export function Education() {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </ScrollSectionWrapper>
   );
 }

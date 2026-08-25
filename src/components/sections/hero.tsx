@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { AlternatingText } from "@/components/ui/alternating-text";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { CopyEmailChip } from "@/components/ui/mini-widgets";
@@ -7,14 +7,22 @@ import { useRef } from "react";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(textRef, { once: true });
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
 
-  const yText1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const yText2 = useTransform(scrollYProgress, [0, 1], [0, 400]);
+  // Multi-layer parallax — each element at different speed
+  const yText1 = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const yText2 = useTransform(scrollYProgress, [0, 1], [0, 300]);
+  const yNumber = useTransform(scrollYProgress, [0, 1], [0, 500]);
+  const yOrb1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const yOrb2 = useTransform(scrollYProgress, [0, 1], [0, -150]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scaleOrb = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -29,47 +37,65 @@ export function Hero() {
       ref={containerRef}
       className="min-h-screen flex flex-col justify-between relative overflow-hidden bg-[#030505] pt-20 sm:pt-24 md:pt-24 pb-4 sm:pb-6"
     >
-      {/* Ambient glowing orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-900/15 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-emerald-900/10 rounded-full blur-[160px] pointer-events-none" />
+      {/* Parallax ambient orbs — move at different speeds */}
+      <motion.div 
+        style={{ y: yOrb1, scale: scaleOrb }}
+        className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-900/15 rounded-full blur-[140px] pointer-events-none will-change-transform" 
+      />
+      <motion.div 
+        style={{ y: yOrb2, scale: scaleOrb }}
+        className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-emerald-900/10 rounded-full blur-[160px] pointer-events-none will-change-transform" 
+      />
+
+      {/* Oversized parallax section number "01" */}
+      <motion.div
+        style={{ y: yNumber, opacity }}
+        className="absolute top-[10%] right-[-5%] section-number will-change-transform select-none"
+      >
+        01
+      </motion.div>
 
       <div className="container mx-auto px-6 relative z-10 w-full flex-1 flex flex-col justify-center my-auto">
-        <motion.div style={{ opacity }} className="max-w-6xl mx-auto w-full">
+        <motion.div style={{ opacity }} className="max-w-6xl mx-auto w-full" ref={textRef}>
 
-          {/* Typography-led Hero */}
+          {/* Typography-led Hero — with mask reveal */}
           <div className="mb-4 sm:mb-6 flex flex-col items-start w-full">
             <motion.div
               style={{ y: yText1 }}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="overflow-hidden w-full"
+              className="overflow-hidden w-full will-change-transform"
             >
-              <h1 className="font-serif text-[24vw] md:text-[15vw] leading-[0.8] tracking-[-0.04em] text-[#f3f6f5] uppercase hover-target mix-blend-difference">
+              <motion.h1 
+                initial={{ clipPath: "inset(0 100% 0 0)" }}
+                animate={isInView ? { clipPath: "inset(0 0% 0 0)" } : {}}
+                transition={{ duration: 1.4, ease: [0.77, 0, 0.175, 1], delay: 0.3 }}
+                className="font-serif text-[24vw] md:text-[15vw] leading-[0.8] tracking-[-0.04em] text-[#f3f6f5] uppercase hover-target mix-blend-difference"
+              >
                 BHAVYA
-              </h1>
+              </motion.h1>
             </motion.div>
 
             <motion.div
               style={{ y: yText2 }}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="overflow-hidden w-full flex justify-end"
+              className="overflow-hidden w-full flex justify-end will-change-transform"
             >
-              <h1 className="font-serif text-[24vw] md:text-[15vw] leading-[0.8] tracking-[-0.04em] text-transparent bg-clip-text bg-gradient-to-r from-teal-200 via-teal-400 to-emerald-500 uppercase hover-target">
+              <motion.h1 
+                initial={{ clipPath: "inset(0 0 0 100%)" }}
+                animate={isInView ? { clipPath: "inset(0 0 0 0%)" } : {}}
+                transition={{ duration: 1.4, ease: [0.77, 0, 0.175, 1], delay: 0.5 }}
+                className="font-serif text-[24vw] md:text-[15vw] leading-[0.8] tracking-[-0.04em] text-transparent bg-clip-text bg-gradient-to-r from-teal-200 via-teal-400 to-emerald-500 uppercase hover-target"
+              >
                 KAPOOR
-              </h1>
+              </motion.h1>
             </motion.div>
           </div>
 
           <div className="flex flex-col md:flex-row justify-between items-end w-full mt-6 md:mt-8 gap-6 md:gap-8">
-            {/* Animated Subheading & Copy Email Pill */}
+            {/* Floating role descriptor — asymmetric */}
             <motion.div
               className="text-base sm:text-lg md:text-xl text-gray-400 font-light tracking-wide min-h-[2rem] flex flex-wrap items-center gap-4 w-full md:w-auto"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.8 }}
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.2, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
             >
               <AlternatingText
                 texts={["UI/UX Designer", "AI Video Specialist", "Visual Designer", "Creative Specialist"]}
@@ -83,9 +109,9 @@ export function Hero() {
 
             {/* Minimalist CTA */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.5, duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
               <MagneticButton
                 className="group relative px-6 py-4 md:px-8 md:py-5 bg-transparent border border-white/20 hover:border-teal-400/50 rounded-full flex items-center gap-4 transition-all duration-500 hover-target"

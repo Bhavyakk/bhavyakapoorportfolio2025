@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionTemplate, useSpring } from "framer-motion";
 import { useState, useRef } from "react";
 import { ProjectModal } from "../ui/project-modal";
 import { Users, Search, Palette, TestTube, Smartphone, Target, ArrowUpRight } from "lucide-react";
@@ -27,9 +27,20 @@ export function Projects() {
     offset: ["start start", "end end"]
   });
 
-  const xPercent = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  // Smoother, physics-based scroll
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+
+  const xPercent = useTransform(smoothProgress, [0, 1], [0, -100]);
   const x = useMotionTemplate`calc(${xPercent}% + 100vw)`;
-  const xBgText = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
+  const xBgText = useTransform(smoothProgress, [0, 1], ["0%", "-50%"]);
+  
+  // Image parallax inside cards (moves opposite to scroll direction)
+  const imageX = useTransform(smoothProgress, [0, 1], ["0%", "15%"]);
+
+  // Calculate active project index for progress indicator
+  const activeIndex = useTransform(scrollYProgress, (v) => 
+    Math.min(Math.max(1, Math.ceil(v * projects.length)), projects.length)
+  );
 
   const handleProjectClick = (project: any) => {
     setSelectedProject(project);
@@ -222,21 +233,28 @@ export function Projects() {
             </h2>
           </motion.div>
 
+          {/* Section Number "04" */}
+          <div className="absolute top-1/4 right-[5%] section-bg-number text-[30vw] md:text-[40vw] font-serif leading-[0.8] tracking-tighter mix-blend-screen text-white/5 pointer-events-none select-none z-0">
+            04
+          </div>
+
           <motion.div style={{ x }} className="flex gap-16 px-[10vw] items-center relative z-10 w-max">
             {projects.map((project, index) => (
               <div 
                 key={project.title}
-                className="w-[60vw] h-[70vh] flex-shrink-0 group cursor-pointer relative hover-target"
+                className="w-[60vw] h-[70vh] flex-shrink-0 group cursor-pointer relative"
                 onClick={() => handleProjectClick(project)}
+                data-cursor="view"
               >
                 <div className="w-full h-full relative overflow-hidden">
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-700 z-10" />
-                  <img
+                  <motion.img
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-[0.16,1,0.3,1]"
+                    style={{ x: imageX, scale: 1.15 }}
+                    className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 ease-[0.16,1,0.3,1] will-change-transform"
                   />
                   
                   {/* Cinematic Content Overlay */}
@@ -265,6 +283,14 @@ export function Projects() {
             {/* End Spacer to let last item reach middle of screen */}
             <div className="w-[10vw] flex-shrink-0" />
           </motion.div>
+
+          {/* Progress Indicator */}
+          <div className="absolute bottom-12 right-12 z-20 flex items-baseline gap-2 font-serif mix-blend-difference">
+            <motion.span className="text-5xl text-teal-400">
+              {activeIndex}
+            </motion.span>
+            <span className="text-3xl text-white/40">/ {projects.length}</span>
+          </div>
         </div>
       </section>
 

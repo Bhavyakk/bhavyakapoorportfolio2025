@@ -1,12 +1,52 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import profileImage from "../../assets/bhavya-profile-new.jpg";
+import { ScrollSectionWrapper } from "@/components/ui/scroll-section-wrapper";
+
+// Line-by-line text reveal component
+function RevealParagraph({ children, className = "" }: { children: string; className?: string }) {
+  const ref = useRef<HTMLParagraphElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  
+  const words = children.split(" ");
+  
+  return (
+    <p ref={ref} className={className}>
+      {words.map((word, i) => (
+        <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
+          <motion.span
+            className="inline-block"
+            initial={{ y: "100%", opacity: 0 }}
+            animate={isInView ? { y: "0%", opacity: 1 } : {}}
+            transition={{
+              duration: 0.5,
+              delay: i * 0.02,
+              ease: [0.33, 1, 0.68, 1],
+            }}
+          >
+            {word}
+          </motion.span>
+        </span>
+      ))}
+    </p>
+  );
+}
 
 export function About() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
+  const isLineInView = useInView(lineRef, { once: true, margin: "-100px" });
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Image-specific scroll for parallax zoom
+  const { scrollYProgress: imageScrollProgress } = useScroll({
+    target: imageRef,
     offset: ["start end", "end start"],
   });
 
@@ -16,9 +56,22 @@ export function About() {
   ];
 
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  
+  // Split-screen parallax — text and image at different rates
+  const yText = useTransform(scrollYProgress, [0, 1], [80, -40]);
+  const yImage = useTransform(scrollYProgress, [0, 1], [-40, 60]);
+  
+  // Image parallax zoom on scroll
+  const imageScale = useTransform(imageScrollProgress, [0, 0.5, 1], [1.1, 1, 1.05]);
+  const imageY = useTransform(imageScrollProgress, [0, 1], [-30, 30]);
 
   return (
-    <section id="about" ref={containerRef} className="py-20 md:py-32 relative overflow-hidden bg-[#030505]">
+    <ScrollSectionWrapper 
+      id="about" 
+      sectionNumber="02"
+      className="py-20 md:py-32 bg-[#030505]"
+      parallaxSpeed={[-100, 300]}
+    >
       <div className="container mx-auto px-6 relative z-10 max-w-7xl">
         
         {/* Section Header */}
@@ -31,10 +84,13 @@ export function About() {
           </motion.h2>
         </div>
 
-        {/* Scroll Revealed Bio & Image */}
+        {/* Scroll Revealed Bio & Image — split-screen parallax */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-32">
           
-          <div className="lg:col-span-7 space-y-12">
+          <motion.div 
+            style={{ y: yText }}
+            className="lg:col-span-7 space-y-12 will-change-transform"
+          >
             <motion.h3 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -44,55 +100,47 @@ export function About() {
               Hi, I'm Bhavya.
             </motion.h3>
             
-            <motion.div 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ staggerChildren: 0.2 }}
-              className="space-y-6 text-lg md:text-3xl font-light text-[#f3f6f5]/60 leading-relaxed"
-            >
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-white mix-blend-difference hover-target"
-              >
-                I work as a Freelance Visual, UI/UX Designer & AI Video Specialist, with a strong interest in social media, AI content creation, and branding projects. Over the past 2 years, I’ve worked across B2C web and mobile products, AI video production, branding, and marketing creatives.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="hover-target"
-              >
+            <div className="space-y-6 text-lg md:text-3xl font-light leading-relaxed">
+              <RevealParagraph className="text-white mix-blend-difference hover-target">
+                I work as a Freelance Visual, UI/UX Designer & AI Video Specialist, with a strong interest in social media, AI content creation, and branding projects. Over the past 2 years, I've worked across B2C web and mobile products, AI video production, branding, and marketing creatives.
+              </RevealParagraph>
+              <RevealParagraph className="text-[#f3f6f5]/60 hover-target">
                 I enjoy the process of taking a rough idea and shaping it into something people can actually use and connect with.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="hover-target"
-              >
-                Outside of work, you’ll find me traveling, taking landscape photos, or watching cricket. Always up for meeting new people, learning something new, or working on an interesting project.
-              </motion.p>
-            </motion.div>
-          </div>
+              </RevealParagraph>
+              <RevealParagraph className="text-[#f3f6f5]/60 hover-target">
+                Outside of work, you'll find me traveling, taking landscape photos, or watching cricket. Always up for meeting new people, learning something new, or working on an interesting project.
+              </RevealParagraph>
+            </div>
+
+            {/* Animated accent line */}
+            <div ref={lineRef} className="pt-4">
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={isLineInView ? { scaleX: 1 } : {}}
+                transition={{ duration: 1.2, ease: [0.77, 0, 0.175, 1] }}
+                className="h-[1px] bg-gradient-to-r from-teal-400/60 via-teal-400/20 to-transparent origin-left w-full max-w-md"
+              />
+            </div>
+          </motion.div>
 
           <motion.div 
+            ref={imageRef}
+            style={{ y: yImage }}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative"
+            className="lg:col-span-5 relative will-change-transform"
           >
             <div className="aspect-[3/4] overflow-hidden rounded-sm hover-target group">
               <div className="absolute inset-0 bg-teal-500/20 group-hover:bg-transparent transition-colors duration-700 z-10 mix-blend-multiply" />
-              <img 
+              <motion.img 
                 src={profileImage} 
                 alt="Bhavya Kapoor" 
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-1000"
+                style={{ scale: imageScale, y: imageY }}
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 will-change-transform"
               />
               <div className="absolute bottom-8 left-8 z-20 flex items-center gap-3 text-white font-serif text-2xl mix-blend-difference">
                 <MapPin className="w-6 h-6 text-teal-400" />
@@ -121,6 +169,6 @@ export function About() {
         </div>
 
       </div>
-    </section>
+    </ScrollSectionWrapper>
   );
 }

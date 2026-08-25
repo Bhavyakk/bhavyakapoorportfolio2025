@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Zap } from "lucide-react";
 import { CopyEmailChip } from "@/components/ui/mini-widgets";
+import { ScrollSectionWrapper } from "@/components/ui/scroll-section-wrapper";
 
 export function Contact() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -13,10 +14,15 @@ export function Contact() {
 
   const scaleText = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
   const yText = useTransform(scrollYProgress, [0, 1], [100, 0]);
+  const letterSpacing = useTransform(scrollYProgress, [0.5, 1], ["0.5em", "-0.04em"]);
 
   return (
-    <section id="contact" ref={containerRef} className="relative min-h-screen flex flex-col justify-end bg-[#030505] overflow-hidden pt-32 pb-16">
-      
+    <ScrollSectionWrapper 
+      id="contact" 
+      sectionNumber="05"
+      className="pt-32 pb-16 bg-[#030505] min-h-screen flex flex-col justify-end"
+      parallaxSpeed={[-100, 100]}
+    >
       {/* Decorative ambient light */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-teal-500/10 rounded-full blur-[120px] pointer-events-none" />
 
@@ -36,47 +42,67 @@ export function Contact() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-6">
-              <a 
+              <motion.a 
                 href="mailto:bhavya.kapoorr@gmail.com"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
                 className="group flex items-center gap-4 text-xl font-medium text-white hover:text-teal-400 transition-colors duration-300 hover-target"
               >
                 <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-teal-400 transition-colors duration-300">
                   <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
                 </div>
                 <span>bhavya.kapoorr@gmail.com</span>
-              </a>
+              </motion.a>
 
-              <a 
+              <motion.a 
                 href="https://www.linkedin.com/in/bhavyakapoorr/"
                 target="_blank"
                 rel="noopener noreferrer"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
                 className="group flex items-center gap-4 text-xl font-medium text-white hover:text-blue-400 transition-colors duration-300 hover-target"
               >
                 <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-blue-400 transition-colors duration-300">
                   <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
                 </div>
                 <span>LinkedIn</span>
-              </a>
+              </motion.a>
             </div>
           </div>
           
-          <div className="mt-16 md:mt-0 text-left md:text-right">
+          <motion.div 
+            className="mt-16 md:mt-0 text-left md:text-right"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
             <p className="text-gray-500 uppercase tracking-[0.2em] text-sm font-medium mb-4">Location</p>
             <p className="text-xl text-white font-light">India<br/>Available Worldwide</p>
-          </div>
+          </motion.div>
         </div>
 
+        {/* Decorative horizontal rule that draws on scroll */}
+        <motion.div 
+          style={{ scaleX: scrollYProgress, originX: 0 }}
+          className="h-[1px] w-full bg-gradient-to-r from-teal-500/50 via-teal-400/10 to-transparent mb-12 will-change-transform"
+        />
+
         {/* Massive Scaling Footer Text */}
-        <div className="w-full overflow-hidden mt-auto flex justify-center items-end border-b border-white/10 pb-8">
+        <div className="w-full overflow-hidden mt-auto flex justify-center items-end pb-8">
           <motion.h1 
-            style={{ scale: scaleText, y: yText }}
-            className="font-serif text-[22vw] md:text-[18vw] leading-[0.7] tracking-tighter text-[#f3f6f5] uppercase mix-blend-difference hover-target cursor-default transform-origin-bottom"
+            style={{ scale: scaleText, y: yText, letterSpacing }}
+            className="font-serif text-[22vw] md:text-[18vw] leading-[0.7] text-[#f3f6f5] uppercase mix-blend-difference hover-target cursor-default transform-origin-bottom will-change-transform"
           >
             LET'S TALK
           </motion.h1>
         </div>
 
       </div>
-    </section>
+    </ScrollSectionWrapper>
   );
 }
